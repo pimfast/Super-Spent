@@ -90,7 +90,7 @@ if (_attack) && (canattack) {
 				
 				_attacko.alarm[0] = (0.5 * game_get_speed(gamespeed_fps));
 				_attacko.dmg = 3;
-				_attacko.hknockback = (1.5 * dir);
+				_attacko.hknockback = (5 * dir);
 				_attacko.vknockback = -7;
 				_attacko.stundur = 0.75;
 				

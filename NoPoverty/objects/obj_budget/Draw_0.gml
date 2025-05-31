@@ -9,6 +9,11 @@ if (!_confirm) {
 	_confirm = keyboard_check_pressed(vk_enter);
 }
 
+if (global.coinnum != 0) {
+	_left = 0;
+	_right = 0;
+}
+
 draw_set_font(fnt_01);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
