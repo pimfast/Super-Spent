@@ -1,0 +1,3 @@
+/// @desc caninput
+
+caninput = true;
