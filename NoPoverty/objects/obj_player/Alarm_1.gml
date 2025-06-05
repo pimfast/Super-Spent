@@ -1,3 +1,3 @@
-/// @desc caninput
+/// @desc uninvincible
 
-caninput = true;
+invincible = false;

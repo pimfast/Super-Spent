@@ -18,30 +18,31 @@ if (caninput) {
 	_strafe = keyboard_check(ord("S"));
 }
 
-//attack (A: punch, kick that sends you up, big punch) OR (B: punch, other punch, kick that sends you up)
-//A pros: more fun for speedrunning, as you have to take extra care to time it right to maximize speed
-//B pros: more natural animation, makes more sense in combat
+//attack (1: punch, 2: kick that sends you up, 3A: uppercut, 3B: big punch, 3C: backflip)
 if (_attack) && (canattack) {
 	canattack = false;
 	combopart++
 	alarm[2] = (0.60 * game_get_speed(gamespeed_fps));
-	var _attacksize
-	var _attackdistance
-	var _attacko
+	var _attacksize;
+	var _attackdistance;
+	var _attackheight;
+	var _attacko;
 	switch (combopart) {
 		case 1:
 			_attacksize = 25;
 			_attackdistance = 15;
+			_attackheight = 0;
 			
-			_attacko = instance_create_depth((x+(dir*_attackdistance)) - (_attacksize/2),y-(_attacksize/2),0,obj_hitbox)
+			_attacko = instance_create_depth((x+(dir*_attackdistance)) - (_attacksize/2),(y+_attackheight) - (_attacksize/2),0,obj_hitbox)
 			_attacko.image_xscale = _attacksize;
 			_attacko.image_yscale = _attacksize;
 			_attacko.attacksize = _attacksize;
 			_attacko.attackdistance = _attackdistance;
+			_attacko.attackheight = _attackheight;
 			_attacko.owner = self;
 			
 			_attacko.alarm[0] = (0.15 * game_get_speed(gamespeed_fps));
-			_attacko.dmg = 1;
+			_attacko.dmg = (1 * dmg);
 			_attacko.hknockback = (5 * dir);
 			_attacko.vknockback = -2;
 			_attacko.stundur = 0.25;
@@ -55,16 +56,18 @@ if (_attack) && (canattack) {
 		case 2:
 			_attacksize = 25;
 			_attackdistance = 20;
+			_attackheight = 0;
 	
-			_attacko = instance_create_depth((x+(dir*_attackdistance)) - (_attacksize/2),y-(_attacksize/2),0,obj_hitbox)
+			_attacko = instance_create_depth((x+(dir*_attackdistance)) - (_attacksize/2),(y+_attackheight) - (_attacksize/2),0,obj_hitbox)
 			_attacko.image_xscale = _attacksize;
 			_attacko.image_yscale = _attacksize;
 			_attacko.attacksize = _attacksize;
 			_attacko.attackdistance = _attackdistance;
+			_attacko.attackheight = _attackheight;
 			_attacko.owner = self;
 			
 			_attacko.alarm[0] = (0.25 * game_get_speed(gamespeed_fps));
-			_attacko.dmg = 2;
+			_attacko.dmg = (2 * dmg);
 			_attacko.hknockback = (5 * dir);
 			_attacko.vknockback = -2;
 			_attacko.stundur = 0.25;
@@ -80,16 +83,18 @@ if (_attack) && (canattack) {
 			if (_up) {
 				_attacksize = 35;
 				_attackdistance = 10;
+				_attackheight = -5;
 				
-				_attacko = instance_create_depth((x+(dir*_attackdistance)) - (_attacksize/2),y-(_attacksize/2),0,obj_hitbox)
+				_attacko = instance_create_depth((x+(dir*_attackdistance)) - (_attacksize/2),(y+_attackheight) - (_attacksize/2),0,obj_hitbox)
 				_attacko.image_xscale = _attacksize;
 				_attacko.image_yscale = _attacksize;
 				_attacko.attacksize = _attacksize;
 				_attacko.attackdistance = _attackdistance;
+				_attacko.attackheight = _attackheight;
 				_attacko.owner = self;
 				
 				_attacko.alarm[0] = (0.5 * game_get_speed(gamespeed_fps));
-				_attacko.dmg = 3;
+				_attacko.dmg = (3 * dmg);
 				_attacko.hknockback = (5 * dir);
 				_attacko.vknockback = -7;
 				_attacko.stundur = 0.75;
@@ -97,30 +102,32 @@ if (_attack) && (canattack) {
 				//push player
 				//if (!_strafe) {
 				bonushsp += (0*dir);
-				vsp = -5;
+				vsp = -7;
 				//}
 				
 				caninput = false;
-				alarm[1] = (0.5 * game_get_speed(gamespeed_fps));
+				alarm[0] = (0.35 * game_get_speed(gamespeed_fps));
 				
 				combopart = 0;
 				alarm[2] = -1;
 			} else {
 				if (_down) {
-					_attacksize = 35;
-					_attackdistance = 10;
+					_attacksize = 30;
+					_attackdistance = -3;
+					_attackheight = -5;
 					
-					_attacko = instance_create_depth((x+(dir*_attackdistance)) - (_attacksize/2),y-(_attacksize/2),0,obj_hitbox)
+					_attacko = instance_create_depth((x+(dir*_attackdistance)) - (_attacksize/2),(y+_attackheight) - (_attacksize/2),0,obj_hitbox)
 					_attacko.image_xscale = _attacksize;
 					_attacko.image_yscale = _attacksize;
 					_attacko.attacksize = _attacksize;
 					_attacko.attackdistance = _attackdistance;
+					_attacko.attackheight = _attackheight;
 					_attacko.owner = self;
 					
 					_attacko.alarm[0] = (0.5 * game_get_speed(gamespeed_fps));
-					_attacko.dmg = 3;
-					_attacko.hknockback = (5 * dir);
-					_attacko.vknockback = -2;
+					_attacko.dmg = (3 * dmg);
+					_attacko.hknockback = (8 * -dir);
+					_attacko.vknockback = -4;
 					_attacko.stundur = 0.75;
 					
 					//push player
@@ -130,23 +137,25 @@ if (_attack) && (canattack) {
 					//}
 					
 					caninput = false;
-					alarm[1] = (0.5 * game_get_speed(gamespeed_fps));
+					alarm[0] = (0.5 * game_get_speed(gamespeed_fps));
 					
 					combopart = 0;
 					alarm[2] = -1;
 				} else {
 					_attacksize = 35;
 					_attackdistance = 10;
+					_attackheight = 0;
 				
-					_attacko = instance_create_depth((x+(dir*_attackdistance)) - (_attacksize/2),y-(_attacksize/2),0,obj_hitbox)
+					_attacko = instance_create_depth((x+(dir*_attackdistance)) - (_attacksize/2),(y+_attackheight) - (_attacksize/2),0,obj_hitbox)
 					_attacko.image_xscale = _attacksize;
 					_attacko.image_yscale = _attacksize;
 					_attacko.attacksize = _attacksize;
 					_attacko.attackdistance = _attackdistance;
+					_attacko.attackheight = _attackheight;
 					_attacko.owner = self;
 				
 					_attacko.alarm[0] = (0.5 * game_get_speed(gamespeed_fps));
-					_attacko.dmg = 3;
+					_attacko.dmg = (3 * dmg);
 					_attacko.hknockback = (5 * dir);
 					_attacko.vknockback = -2;
 					_attacko.stundur = 0.75;
@@ -158,7 +167,7 @@ if (_attack) && (canattack) {
 					//}
 				
 					caninput = false;
-					alarm[1] = (0.5 * game_get_speed(gamespeed_fps));
+					alarm[0] = (0.5 * game_get_speed(gamespeed_fps));
 				
 					combopart = 0;
 					alarm[2] = -1;
@@ -226,25 +235,10 @@ if (_lootget) {
 _lootget = instance_place(x,y,obj_health)
 if (_lootget) {
 	hp += 2;
-	instance_destroy(_lootget); 
-}
-
-//ouch
-var _youch = instance_place(x,y,obj_enemy);
-if (_youch) && (_youch.caninput) && (!invincible) {
-	hp -= 3;
-	if (hp > 0) {
-		invincible = true;
-		alarm[0] = (1 * game_get_speed(gamespeed_fps));
-	} else {
-		obj_game.alarm[0] = (1 * game_get_speed(gamespeed_fps));
-		instance_destroy(obj_player);
+	if (hp > maxhp) {
+		hp = maxhp;
 	}
-	bonushsp = (6 * -dir);
-	vsp = -3;
-	caninput = false;
-	combopart = 0;
-	alarm[1] = (0.5 * game_get_speed(gamespeed_fps));
+	instance_destroy(_lootget); 
 }
 
 if (invincible) {
@@ -253,6 +247,8 @@ if (invincible) {
 	} else {
 		visible = true;
 	}
+} else {
+	visible = true;
 }
 
 //horizontal collision

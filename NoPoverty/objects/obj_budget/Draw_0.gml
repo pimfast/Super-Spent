@@ -20,11 +20,11 @@ draw_set_valign(fa_middle);
 
 //draw coins
 //draw_text_transformed_color(view_wport[0]*0.05,view_hport[0]*0.10,global.coinnum,5,5,0,c_black,c_black,c_black,c_black,1);
-var _coinsprite = spr_temp; //replace with spr_hudcoins
-var _startdistance = 20;
+var _coinsprite = spr_hudcoin;
+var _startdistance = 10;
 var _betweendistance = 10;
 for(var i = global.coinnum; i > 0; i--) {
-	draw_sprite_stretched(_coinsprite,0,20,_startdistance,sprite_get_width(_coinsprite),sprite_get_height(_coinsprite));
+	draw_sprite_stretched(_coinsprite,0,room_width/2,_startdistance,sprite_get_width(_coinsprite),sprite_get_height(_coinsprite));
 	_startdistance += (sprite_get_height(_coinsprite) + _betweendistance); 
 }
 
@@ -38,16 +38,16 @@ var _washy = (room_height * 0.80)
 
 var _necessitiescoindistance = 30
 if (food) {
-	draw_sprite(spr_temp,0,_necessitiesx + _necessitiescoindistance, _foody)
+	draw_sprite(spr_hudcoin,0,_necessitiesx + _necessitiescoindistance, _foody-8)
 }
 if (water) {
-	draw_sprite(spr_temp,0,_necessitiesx + _necessitiescoindistance, _watery)
+	draw_sprite(spr_hudcoin,0,_necessitiesx + _necessitiescoindistance, _watery-8)
 }
 if (shelter) {
-	draw_sprite(spr_temp,0,_necessitiesx + _necessitiescoindistance, _sheltery)
+	draw_sprite(spr_hudcoin,0,_necessitiesx + _necessitiescoindistance, _sheltery-8)
 }
 if (wash) {
-	draw_sprite(spr_temp,0,_necessitiesx + _necessitiescoindistance, _washy)
+	draw_sprite(spr_hudcoin,0,_necessitiesx + _necessitiescoindistance, _washy-8)
 }
 
 switch (selectedoption) {
@@ -59,9 +59,6 @@ switch (selectedoption) {
 		draw_text_color(_necessitiesx,_washy,"Wash",c_purple,c_purple,c_purple,c_purple,1);
 		if ((alarm_get(0) <= 0)) {
 			draw_text_color(room_width/2,_confirmy,"Confirm",c_white,c_white,c_white,c_white,1);
-			if (_left) || (_right) {
-				selectedoption = lastselected;
-			}
 			if (_confirm) {
 				if (food == false) {
 					global.playerdowngrades[0] += 1;
@@ -77,6 +74,9 @@ switch (selectedoption) {
 				}
 				alarm[0] = (1 * game_get_speed(gamespeed_fps));
 			}
+			if (_left) || (_right) {
+				selectedoption = lastselected;
+			}
 		} else {
 			draw_text_color(room_width/2,_confirmy,"Confirm",c_gray,c_gray,c_gray,c_gray,1);
 		}
@@ -88,16 +88,6 @@ switch (selectedoption) {
 		draw_text_color(_necessitiesx,_watery,"Water",c_purple,c_purple,c_purple,c_purple,1);
 		draw_text_color(_necessitiesx,_sheltery,"Shelter",c_purple,c_purple,c_purple,c_purple,1);
 		draw_text_color(_necessitiesx,_washy,"Wash",c_purple,c_purple,c_purple,c_purple,1);
-		if (_up) {
-			selectedoption = 4;
-		}
-		if (_down) {
-			selectedoption = 2;
-		}
-		if (_left) || (_right) {
-			lastselected = selectedoption;
-			selectedoption = 0;
-		}
 		if (_confirm) {
 			if (food == false) {
 				if (global.coinnum > 0) {
@@ -109,6 +99,16 @@ switch (selectedoption) {
 				global.coinnum++;
 			}
 		}
+		if (_up) {
+			selectedoption = 4;
+		}
+		if (_down) {
+			selectedoption = 2;
+		}
+		if (_left) || (_right) {
+			lastselected = selectedoption;
+			selectedoption = 0;
+		}
 		break;
 	case 2:
 		//water
@@ -117,16 +117,6 @@ switch (selectedoption) {
 		draw_text_color(_necessitiesx,_watery,"Water",c_white,c_white,c_white,c_white,1);
 		draw_text_color(_necessitiesx,_sheltery,"Shelter",c_purple,c_purple,c_purple,c_purple,1);
 		draw_text_color(_necessitiesx,_washy,"Wash",c_purple,c_purple,c_purple,c_purple,1);
-		if (_up) {
-			selectedoption = 1;
-		}
-		if (_down) {
-			selectedoption = 3;
-		}
-		if (_left) || (_right) {
-			lastselected = selectedoption;
-			selectedoption = 0;
-		}
 		if (_confirm) {
 			if (water == false) {
 				if (global.coinnum > 0) {
@@ -138,6 +128,16 @@ switch (selectedoption) {
 				global.coinnum++;
 			}
 		}
+		if (_up) {
+			selectedoption = 1;
+		}
+		if (_down) {
+			selectedoption = 3;
+		}
+		if (_left) || (_right) {
+			lastselected = selectedoption;
+			selectedoption = 0;
+		}
 		break;
 	case 3:
 		//shelter
@@ -146,16 +146,6 @@ switch (selectedoption) {
 		draw_text_color(_necessitiesx,_watery,"Water",c_purple,c_purple,c_purple,c_purple,1);
 		draw_text_color(_necessitiesx,_sheltery,"Shelter",c_white,c_white,c_white,c_white,1);
 		draw_text_color(_necessitiesx,_washy,"Wash",c_purple,c_purple,c_purple,c_purple,1);
-		if (_up) {
-			selectedoption = 2;
-		}
-		if (_down) {
-			selectedoption = 4;
-		}
-		if (_left) || (_right) {
-			lastselected = selectedoption;
-			selectedoption = 0;
-		}
 		if (_confirm) {
 			if (shelter == false) {
 				if (global.coinnum > 0) {
@@ -167,6 +157,16 @@ switch (selectedoption) {
 				global.coinnum++;
 			}
 		}
+		if (_up) {
+			selectedoption = 2;
+		}
+		if (_down) {
+			selectedoption = 4;
+		}
+		if (_left) || (_right) {
+			lastselected = selectedoption;
+			selectedoption = 0;
+		}
 		break;
 	case 4:
 		//wash
@@ -175,16 +175,6 @@ switch (selectedoption) {
 		draw_text_color(_necessitiesx,_watery,"Water",c_purple,c_purple,c_purple,c_purple,1);
 		draw_text_color(_necessitiesx,_sheltery,"Shelter",c_purple,c_purple,c_purple,c_purple,1);
 		draw_text_color(_necessitiesx,_washy,"Wash",c_white,c_white,c_white,c_white,1);
-		if (_up) {
-			selectedoption = 3;
-		}
-		if (_down) {
-			selectedoption = 1;
-		}
-		if (_left) || (_right) {
-			lastselected = selectedoption;
-			selectedoption = 0;
-		}
 		if (_confirm) {
 			if (wash == false) {
 				if (global.coinnum > 0) {
@@ -195,6 +185,16 @@ switch (selectedoption) {
 				wash = false;
 				global.coinnum++;
 			}
+		}
+		if (_up) {
+			selectedoption = 3;
+		}
+		if (_down) {
+			selectedoption = 1;
+		}
+		if (_left) || (_right) {
+			lastselected = selectedoption;
+			selectedoption = 0;
 		}
 		break;
 }

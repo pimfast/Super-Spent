@@ -8,7 +8,7 @@ global.level = 1;
 global.downgradesFood = [
 "Weak: less health",
 "Famished: deal less damage",
-"Starving: can't kick"
+"Starving: can't combo"
 ];
 global.downgradesWater = [
 "Dry: slower move speed",
@@ -17,8 +17,8 @@ global.downgradesWater = [
 ];
 global.downgradesShelter = [
 "Tired: jump less high",
-"Drained: jumping requires charge",
-"Exhausted: increased gravity"
+"Exhausted: jumping requires charge",
+"Drained: increased gravity"
 ];
 global.downgradesWash = [
 "Smelly: enemies fight you",
