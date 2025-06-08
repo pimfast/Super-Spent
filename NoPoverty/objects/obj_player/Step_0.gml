@@ -18,7 +18,7 @@ if (caninput) {
 	_strafe = keyboard_check(ord("S"));
 }
 
-//attack (1: punch, 2: kick that sends you up, 3A: uppercut, 3B: big punch, 3C: backflip)
+//attack (1: punch, 2: kick that sends you up, 3: big punch, 3+UP: uppercut, 3+DOWN: backflip)
 if (_attack) && (canattack) {
 	canattack = false;
 	combopart++
@@ -43,7 +43,7 @@ if (_attack) && (canattack) {
 			
 			_attacko.alarm[0] = (0.15 * game_get_speed(gamespeed_fps));
 			_attacko.dmg = (1 * dmg);
-			_attacko.hknockback = (5 * dir);
+			_attacko.hknockback = 5;
 			_attacko.vknockback = -2;
 			_attacko.stundur = 0.25;
 			
@@ -68,7 +68,7 @@ if (_attack) && (canattack) {
 			
 			_attacko.alarm[0] = (0.25 * game_get_speed(gamespeed_fps));
 			_attacko.dmg = (2 * dmg);
-			_attacko.hknockback = (5 * dir);
+			_attacko.hknockback = 5;
 			_attacko.vknockback = -2;
 			_attacko.stundur = 0.25;
 			
@@ -95,7 +95,7 @@ if (_attack) && (canattack) {
 				
 				_attacko.alarm[0] = (0.5 * game_get_speed(gamespeed_fps));
 				_attacko.dmg = (3 * dmg);
-				_attacko.hknockback = (5 * dir);
+				_attacko.hknockback = 5;
 				_attacko.vknockback = -7;
 				_attacko.stundur = 0.75;
 				
@@ -126,7 +126,7 @@ if (_attack) && (canattack) {
 					
 					_attacko.alarm[0] = (0.5 * game_get_speed(gamespeed_fps));
 					_attacko.dmg = (3 * dmg);
-					_attacko.hknockback = (8 * -dir);
+					_attacko.hknockback = -8;
 					_attacko.vknockback = -4;
 					_attacko.stundur = 0.75;
 					
@@ -156,7 +156,7 @@ if (_attack) && (canattack) {
 				
 					_attacko.alarm[0] = (0.5 * game_get_speed(gamespeed_fps));
 					_attacko.dmg = (3 * dmg);
-					_attacko.hknockback = (5 * dir);
+					_attacko.hknockback = 5;
 					_attacko.vknockback = -2;
 					_attacko.stundur = 0.75;
 				
@@ -234,7 +234,7 @@ if (_lootget) {
 //health
 _lootget = instance_place(x,y,obj_health)
 if (_lootget) {
-	hp += 2;
+	hp += (2 * healthrestore);
 	if (hp > maxhp) {
 		hp = maxhp;
 	}

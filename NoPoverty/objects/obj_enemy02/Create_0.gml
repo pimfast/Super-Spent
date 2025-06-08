@@ -19,7 +19,7 @@ myhitbox.attackdistance = _attackdistance;
 myhitbox.attackheight = _attackheight;
 myhitbox.owner = self;
 			
-myhitbox.dmg = 3;
+myhitbox.dmg = 2;
 myhitbox.hknockback = 6;
 myhitbox.vknockback = -3;
 myhitbox.stundur = 0.5;

@@ -7,21 +7,21 @@ if (room == rm_level1) {
 	grv = 0.34; //lower is lighter higher is heavier
 	defwalksp = 2.3; walksp = defwalksp; //how fast you go
 	jumpsp = -6.0; //less is more
-	maxskid = 1; //how far you slide
+	healthrestore = 1; //how much dropped health heals you
 	
 	global.maxhp = maxhp; //health
 	global.dmg = dmg; //damage multiplier
 	global.grv = grv; //lower is lighter higher is heavier
 	global.defwalksp = defwalksp; //how fast you go
 	global.jumpsp = jumpsp; //less is more
-	global.maxskid = maxskid; //how far you slide
+	global.healthrestore = healthrestore; //how much dropped health heals you
 } else {
 	maxhp = global.maxhp; hp = maxhp; //health
 	dmg = global.dmg; //damage multiplier
 	grv = global.grv; //lower is lighter higher is heavier
 	defwalksp = global.defwalksp; walksp = defwalksp; //how fast you go
 	jumpsp = global.jumpsp; //less is more
-	maxskid = global.maxskid; //how far you slide
+	healthrestore = global.healthrestore; //how much dropped health heals you
 }
 
 //necessary code (do not / cannot change)
@@ -31,6 +31,7 @@ canattack = true;
 canjump = true;
 skidh = 0;
 prevhsp = 0;
+maxskid = 1;
 dir = 1;
 bonushsp = 0;
 invincible = false;

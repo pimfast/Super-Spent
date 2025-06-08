@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_enemy01",
+  "name": "obj_enemy02",
   "eventList": [
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,},
     {"resourceType":"GMEvent","resourceVersion":"1.0","name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,},
@@ -37,8 +37,8 @@
   ],
   "solid": false,
   "spriteId": {
-    "name": "spr_temp",
-    "path": "sprites/spr_temp/spr_temp.yy",
+    "name": "spr_shroom_idle",
+    "path": "sprites/spr_shroom_idle/spr_shroom_idle.yy",
   },
   "spriteMaskId": null,
   "visible": true,

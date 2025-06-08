@@ -34,16 +34,21 @@ if (_num > 0) {
 					}
 				}
 			} else {
-				if (!array_contains(hitlist,_victim.id)) /*&& (active == true)*/ {
+				if (!array_contains(hitlist,_victim.id)) && (object_get_parent(owner.object_index) != obj_enemy) {
 					//apply damage to enemy
 				 	_victim.hp -= dmg;
 					if (_victim.hp <= 0) {
-						instance_create_depth(_victim.x,_victim.y,0,obj_health);
+						if (obj_player.healthrestore > 0) {
+							var _health = instance_create_depth(_victim.x,_victim.y,0,obj_health);
+							_health.bonushsp += (hknockback*owner.dir);
+							_health.vsp = vknockback;
+						}
+						
 						instance_destroy(_victim.myhitbox);
 						instance_destroy(_victim);
 					} else {
 						//apply knockback and stun
-						_victim.bonushsp += hknockback;
+						_victim.bonushsp += (hknockback*owner.dir);
 						_victim.vsp = vknockback;
 						_victim.alarm[0] = (stundur * game_get_speed(gamespeed_fps));
 						_victim.image_blend = make_colour_rgb(50, 50, 50);

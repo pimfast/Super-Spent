@@ -1,7 +1,7 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "obj_hurtable",
+  "name": "obj_enemy",
   "eventList": [],
   "managed": true,
   "overriddenProperties": [],
@@ -9,7 +9,10 @@
     "name": "parents",
     "path": "folders/Objects/misc/parents.yy",
   },
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "obj_hurtable",
+    "path": "objects/obj_hurtable/obj_hurtable.yy",
+  },
   "persistent": false,
   "physicsAngularDamping": 0.1,
   "physicsDensity": 0.5,
