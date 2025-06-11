@@ -17,7 +17,7 @@ if (_num > 0) {
 	for (var i = 0; i < _num; ++i;) {
 		var _victim = _list[| i];
 		if (_victim != owner.id) {
-			if (_victim == obj_player.id) {
+			if (instance_exists(obj_player.id)) && (_victim == obj_player.id) {
 				if (!_victim.invincible) && (active == true) {
 					//apply damage to player
 					_victim.hp -= dmg;

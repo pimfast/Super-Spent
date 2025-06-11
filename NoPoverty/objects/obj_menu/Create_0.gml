@@ -13,14 +13,14 @@ global.downgradesFood = [
 "Starving: Punching makes you fall over"
 ];
 global.downgradesWater = [
-"Tired: -15% jump height",
-"Exhausted: Jumping requires charge",
-"Drained: 20% increased gravity"
+"Dry: -15% jump height",
+"Dehydrated: Jumping requires charge",
+"Husk: 20% increased gravity"
 ];
 global.downgradesShelter = [
-"Dry: -35% move speed",
-"Dehydrated: Strafing requires stamina",
-"Husk: Moving requires stamina"
+"Tired: -25% move speed",
+"Drained: Strafing requires stamina",
+"Exhausted: Moving requires stamina"
 ];
 global.downgradesWash = [
 "Smelly: -40% max health",

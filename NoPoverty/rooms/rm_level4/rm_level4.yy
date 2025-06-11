@@ -15,6 +15,7 @@
     {"name":"inst_287401C5_1","path":"rooms/rm_level4/rm_level4.yy",},
     {"name":"inst_404886CB_1","path":"rooms/rm_level4/rm_level4.yy",},
     {"name":"inst_24FFAC87_1","path":"rooms/rm_level4/rm_level4.yy",},
+    {"name":"inst_27FB69D6","path":"rooms/rm_level4/rm_level4.yy",},
   ],
   "isDnd": false,
   "layers": [
@@ -27,7 +28,8 @@
 -5,-2147483648,-3,0,-25,-2147483648,7,0,10,11,0,0,11,0,-5,-2147483648,-6,0,-15,-2147483648,-26,8,-14,-2147483648,-26,1,-14,-2147483648,-26,2,-14,-2147483648,],"TileDataFormat":1,},"tilesetId":{"name":"ts_level3","path":"tilesets/ts_level3/ts_level3.yy",},"userdefinedDepth":false,"visible":true,"x":0,"y":0,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Instances","depth":200,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_301EDC51_1_2_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":96.0,"y":64.0,},
-        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_22C494F7_2_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_enemy01","path":"objects/obj_enemy01/obj_enemy01.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":592.0,"y":144.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_22C494F7_2_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_enemy01","path":"objects/obj_enemy01/obj_enemy01.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":336.0,"y":128.0,},
+        {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_27FB69D6","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_enemy01","path":"objects/obj_enemy01/obj_enemy01.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":400.0,"y":128.0,},
       ],"layers":[],"properties":[],"userdefinedDepth":false,"visible":true,},
     {"resourceType":"GMRInstanceLayer","resourceVersion":"1.0","name":"Pickups","depth":300,"effectEnabled":true,"effectType":null,"gridX":16,"gridY":16,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
         {"resourceType":"GMRInstance","resourceVersion":"1.0","name":"inst_4E5E709F_1","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"objectId":{"name":"obj_coin","path":"objects/obj_coin/obj_coin.yy",},"properties":[],"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":128.0,"y":64.0,},

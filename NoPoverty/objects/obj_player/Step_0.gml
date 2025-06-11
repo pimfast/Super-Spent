@@ -224,10 +224,11 @@ if (skidh < 0) {skidh = 0;} //set the minimum back to 0
 //	vsp = -14;
 //}
 
-//jumppad
+//falling platform
 var _fallplat = instance_place(x,y+vsp,obj_fallingplatform)
-if (_fallplat) && (_fallplat.alarm[0] == -1) {
+if (_fallplat) && (_fallplat.alarm[0] == -1) && (sign(vsp) >= 0){
 	_fallplat.alarm[0] = (0.75 * game_get_speed(gamespeed_fps));
+	_fallplat.y += 1;
 }
 
 //mud
@@ -278,7 +279,7 @@ if (place_meeting(x,y+vsp,obj_collision)) {
 	}
 	vsp = 0;
 }
-if (sign(vsp) >= 0) && (place_meeting(x,y+vsp+8,obj_halfcollision)) {	
+if (sign(vsp) >= 0) && (place_meeting(x,y+vsp,obj_halfcollision)) {	
 	while (!place_meeting(x,y+sign(vsp),obj_halfcollision)) {
 		y = y + sign(vsp);
 	}

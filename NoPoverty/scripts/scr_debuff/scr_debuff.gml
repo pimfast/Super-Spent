@@ -30,7 +30,7 @@ function debuffneccessities(food,water,shelter,wash){
 	if (shelter == false) {
 		switch (global.playerdowngrades[2]) {
 			case 0:
-				global.defwalksp *= 0.65;
+				global.defwalksp *= 0.75;
 				break;
 			case 1:
 				// code here
