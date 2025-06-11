@@ -7,7 +7,12 @@ y = ((owner.y + attackheight) - (attacksize/2));
 
 //check for colliding hurtables and hurt
 var _list = ds_list_create();
-var _num = collision_rectangle_list(x,y,x+attacksize,y+attacksize,obj_hurtable,false,true,_list,false);
+var _num;
+if (owner != noone) {
+	_num = collision_rectangle_list(x,y,x+attacksize,y+attacksize,obj_hurtable,false,true,_list,false);
+} else {
+	_num = collision_rectangle_list(x,y,x*image_xscale,y*image_yscale,obj_hurtable,false,true,_list,false);
+}
 if (_num > 0) {
 	for (var i = 0; i < _num; ++i;) {
 		var _victim = _list[| i];
@@ -39,7 +44,7 @@ if (_num > 0) {
 				 	_victim.hp -= dmg;
 					if (_victim.hp <= 0) {
 						if (obj_player.healthrestore > 0) {
-							var _health = instance_create_depth(_victim.x,_victim.y,0,obj_health);
+							var _health = instance_create_layer(_victim.x,_victim.y,"Pickups",obj_health);
 							_health.bonushsp += (hknockback*owner.dir);
 							_health.vsp = vknockback;
 						}

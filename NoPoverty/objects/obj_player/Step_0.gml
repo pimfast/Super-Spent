@@ -184,7 +184,7 @@ if (!_strafe) {
 }
 
 //restore jumps
-if (place_meeting(x,y+sign(grv),obj_collision)) {
+if (place_meeting(x,y+sign(grv),obj_collision)) || (place_meeting(x,y+sign(grv),obj_halfcollision)) {
 	canjump = true;
 	walksp = defwalksp;
 } else {
@@ -223,6 +223,17 @@ if (skidh < 0) {skidh = 0;} //set the minimum back to 0
 //if (place_meeting(x,y+vsp,obj_jumppad)) {
 //	vsp = -14;
 //}
+
+//jumppad
+var _fallplat = instance_place(x,y+vsp,obj_fallingplatform)
+if (_fallplat) && (_fallplat.alarm[0] == -1) {
+	_fallplat.alarm[0] = (0.75 * game_get_speed(gamespeed_fps));
+}
+
+//mud
+if (place_meeting(x,y+vsp,obj_mud)) {
+	muddy = true;
+}
 
 //coin
 var _lootget = instance_place(x,y,obj_coin)
@@ -263,6 +274,12 @@ x += hsp;
 //vertical collision
 if (place_meeting(x,y+vsp,obj_collision)) {	
 	while (!place_meeting(x,y+sign(vsp),obj_collision)) {
+		y = y + sign(vsp);
+	}
+	vsp = 0;
+}
+if (sign(vsp) >= 0) && (place_meeting(x,y+vsp+8,obj_halfcollision)) {	
+	while (!place_meeting(x,y+sign(vsp),obj_halfcollision)) {
 		y = y + sign(vsp);
 	}
 	vsp = 0;

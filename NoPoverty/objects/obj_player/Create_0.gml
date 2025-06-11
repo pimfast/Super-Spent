@@ -38,3 +38,4 @@ invincible = false;
 caninput = true;
 combopart = 0;
 myhitbox = noone;
+muddy = false;

@@ -13,4 +13,10 @@ if (place_meeting(x,y+vsp,obj_collision)) {
 	}
 	vsp = 0;
 }
+if (sign(vsp) >= 0) && (place_meeting(x,y+vsp,obj_halfcollision)) {	
+	while (!place_meeting(x,y+sign(vsp),obj_halfcollision)) {
+		y = y + sign(vsp);
+	}
+	vsp = 0;
+}
 y += vsp;

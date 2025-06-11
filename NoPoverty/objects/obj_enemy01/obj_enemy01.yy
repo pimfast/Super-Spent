@@ -12,8 +12,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "guys",
+    "path": "folders/Objects/guys.yy",
   },
   "parentObjectId": {
     "name": "obj_enemy",
@@ -37,8 +37,8 @@
   ],
   "solid": false,
   "spriteId": {
-    "name": "spr_temp",
-    "path": "sprites/spr_temp/spr_temp.yy",
+    "name": "spr_cock_walk",
+    "path": "sprites/spr_cock_walk/spr_cock_walk.yy",
   },
   "spriteMaskId": null,
   "visible": true,

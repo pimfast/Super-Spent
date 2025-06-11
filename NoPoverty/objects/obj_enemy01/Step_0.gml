@@ -22,7 +22,13 @@ x += hsp;
 
 //vertical collision
 if (place_meeting(x,y+vsp,obj_collision)) || (place_meeting(x,y+vsp,obj_enemy)) {	
-	while (!place_meeting(x,y+sign(vsp),obj_collision)) && (!place_meeting(x,y+sign(vsp),obj_enemy)) {
+	while (!place_meeting(x,y+sign(vsp),obj_collision)) {
+		y = y + sign(vsp);
+	}
+	vsp = 0;
+}
+if (sign(vsp) >= 0) && (place_meeting(x,y+vsp,obj_halfcollision)) {	
+	while (!place_meeting(x,y+sign(vsp),obj_halfcollision)) {
 		y = y + sign(vsp);
 	}
 	vsp = 0;

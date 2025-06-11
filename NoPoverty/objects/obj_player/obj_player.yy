@@ -13,8 +13,8 @@
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "guys",
+    "path": "folders/Objects/guys.yy",
   },
   "parentObjectId": {
     "name": "obj_hurtable",

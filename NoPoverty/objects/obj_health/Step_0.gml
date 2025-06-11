@@ -36,4 +36,13 @@ if (place_meeting(x,y+vsp,obj_collision)) {
 		alarm[1] = (3 * game_get_speed(gamespeed_fps));
 	}
 }
+if (sign(vsp) >= 0) && (place_meeting(x,y+vsp,obj_halfcollision)) {	
+	while (!place_meeting(x,y+sign(vsp),obj_halfcollision)) {
+		y = y + sign(vsp);
+	}
+	vsp = 0;
+	if (alarm[0] == -1) && (alarm[1] = -1) {
+		alarm[1] = (3 * game_get_speed(gamespeed_fps));
+	}
+}
 y += vsp;
