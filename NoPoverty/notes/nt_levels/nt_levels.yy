@@ -3,7 +3,7 @@
   "resourceVersion": "1.1",
   "name": "nt_levels",
   "parent": {
-    "name": "Notes",
-    "path": "folders/Notes.yy",
+    "name": "Rooms",
+    "path": "folders/Rooms.yy",
   },
 }

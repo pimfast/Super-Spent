@@ -16,52 +16,51 @@ if (owner != noone) {
 if (_num > 0) {
 	for (var i = 0; i < _num; ++i;) {
 		var _victim = _list[| i];
-		if (_victim != owner.id) {
-			if (instance_exists(obj_player.id)) && (_victim == obj_player.id) {
-				if (!_victim.invincible) && (active == true) {
-					//apply damage to player
-					_victim.hp -= dmg;
-					if (_victim.hp <= 0) {
-						//kill
-						obj_game.alarm[0] = (1 * game_get_speed(gamespeed_fps));
-						instance_destroy(_victim);
-					} else {
-						//enable i frames
-						_victim.invincible = true;
-						_victim.alarm[1] = (1 * game_get_speed(gamespeed_fps));
+		if (_victim != owner.id) && (damagesPlayer == true) {
+			if (instance_exists(obj_player)) && (_victim == obj_player.id) && (!_victim.invincible) && (active == true) {
+				//apply damage to player
+				_victim.hp -= dmg;
+				if (_victim.hp <= 0) {
+					//kill
+					obj_game.alarm[0] = (1 * game_get_speed(gamespeed_fps));
+					instance_destroy(_victim);
+				} else {
+					//enable i frames
+					_victim.invincible = true;
+					_victim.alarm[1] = (1 * game_get_speed(gamespeed_fps));
 					
-						//apply knockback and stun
-						_victim.bonushsp = (hknockback * -_victim.dir);
-						_victim.vsp = vknockback;
-						_victim.caninput = false;
-						_victim.combopart = 0;
-						_victim.alarm[0] = (stundur * game_get_speed(gamespeed_fps));
-					}
+					//apply knockback and stun
+					_victim.bonushsp = (hknockback * -_victim.dir);
+					_victim.vsp = vknockback;
+					_victim.caninput = false;
+					_victim.combopart = 0;
+					_victim.alarm[0] = (stundur * game_get_speed(gamespeed_fps));
 				}
-			} else {
-				if (!array_contains(hitlist,_victim.id)) && (object_get_parent(owner.object_index) != obj_enemy) {
-					//apply damage to enemy
-				 	_victim.hp -= dmg;
-					if (_victim.hp <= 0) {
-						if (obj_player.healthrestore > 0) {
-							var _health = instance_create_layer(_victim.x,_victim.y,"Pickups",obj_health);
-							_health.bonushsp += (hknockback*owner.dir);
-							_health.vsp = vknockback;
-						}
-						
-						instance_destroy(_victim.myhitbox);
-						instance_destroy(_victim);
-					} else {
-						//apply knockback and stun
-						_victim.bonushsp += (hknockback*owner.dir);
-						_victim.vsp = vknockback;
-						_victim.alarm[0] = (stundur * game_get_speed(gamespeed_fps));
-						_victim.image_blend = make_colour_rgb(50, 50, 50);
-						_victim.caninput = false;
-						_victim.myhitbox.active = false;
-					
-						array_push(hitlist,_victim.id);
+			}
+		}
+		if (_victim != owner.id) && (damagesEnemies == true) {
+			if (instance_exists(obj_player)) && (_victim != obj_player.id) && (!array_contains(hitlist,_victim.id)) {
+				//apply damage to enemy
+				_victim.hp -= dmg;
+				if (_victim.hp <= 0) {
+					if (obj_player.healthrestore > 0) {
+						var _health = instance_create_layer(_victim.x,_victim.y,"Pickups",obj_health);
+						_health.bonushsp += (hknockback*owner.dir);
+						_health.vsp = vknockback;
 					}
+						
+					instance_destroy(_victim.myhitbox);
+					instance_destroy(_victim);
+				} else {
+					//apply knockback and stun
+					_victim.bonushsp += (hknockback*owner.dir);
+					_victim.vsp = vknockback;
+					_victim.alarm[0] = (stundur * game_get_speed(gamespeed_fps));
+					_victim.image_blend = make_colour_rgb(50, 50, 50);
+					_victim.caninput = false;
+					_victim.myhitbox.active = false;
+					
+					array_push(hitlist,_victim.id);
 				}
 			}
 		}

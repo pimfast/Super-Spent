@@ -10,5 +10,8 @@ stundur = 0.25;
 hknockback = 1;
 vknockback = -1;
 active = true;
+damagesPlayer = false;
+damagesEnemies = false;
+
 
 hitlist = [];

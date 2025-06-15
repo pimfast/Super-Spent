@@ -39,6 +39,7 @@ if (_attack) && (canattack) {
 			_attacko.attacksize = _attacksize;
 			_attacko.attackdistance = _attackdistance;
 			_attacko.attackheight = _attackheight;
+			_attacko.damagesEnemies = true;
 			_attacko.owner = self;
 			
 			_attacko.alarm[0] = (0.15 * game_get_speed(gamespeed_fps));
@@ -64,6 +65,7 @@ if (_attack) && (canattack) {
 			_attacko.attacksize = _attacksize;
 			_attacko.attackdistance = _attackdistance;
 			_attacko.attackheight = _attackheight;
+			_attacko.damagesEnemies = true;
 			_attacko.owner = self;
 			
 			_attacko.alarm[0] = (0.25 * game_get_speed(gamespeed_fps));
@@ -91,6 +93,7 @@ if (_attack) && (canattack) {
 				_attacko.attacksize = _attacksize;
 				_attacko.attackdistance = _attackdistance;
 				_attacko.attackheight = _attackheight;
+				_attacko.damagesEnemies = true;
 				_attacko.owner = self;
 				
 				_attacko.alarm[0] = (0.5 * game_get_speed(gamespeed_fps));
@@ -122,6 +125,7 @@ if (_attack) && (canattack) {
 					_attacko.attacksize = _attacksize;
 					_attacko.attackdistance = _attackdistance;
 					_attacko.attackheight = _attackheight;
+					_attacko.damagesEnemies = true;
 					_attacko.owner = self;
 					
 					_attacko.alarm[0] = (0.5 * game_get_speed(gamespeed_fps));
@@ -152,6 +156,7 @@ if (_attack) && (canattack) {
 					_attacko.attacksize = _attacksize;
 					_attacko.attackdistance = _attackdistance;
 					_attacko.attackheight = _attackheight;
+					_attacko.damagesEnemies = true;
 					_attacko.owner = self;
 				
 					_attacko.alarm[0] = (0.5 * game_get_speed(gamespeed_fps));
@@ -208,6 +213,7 @@ prevhsp = hsp;
 
 hsp = ((move * walksp) + bonushsp);
 vsp = (vsp + grv);
+if (vsp > 1800) {vsp = 1800} //terminal velocity?
 if (bonushsp > 0) {bonushsp -= 0.5;}
 if (bonushsp < 0) {bonushsp += 0.5;}
 
@@ -225,7 +231,7 @@ if (skidh < 0) {skidh = 0;} //set the minimum back to 0
 //}
 
 //falling platform
-var _fallplat = instance_place(x,y+vsp,obj_fallingplatform)
+var _fallplat = instance_place(x,y+vsp,obj_fallingplatform);
 if (_fallplat) && (_fallplat.alarm[0] == -1) && (sign(vsp) >= 0){
 	_fallplat.alarm[0] = (0.75 * game_get_speed(gamespeed_fps));
 	_fallplat.y += 1;
@@ -237,14 +243,14 @@ if (place_meeting(x,y+vsp,obj_mud)) {
 }
 
 //coin
-var _lootget = instance_place(x,y,obj_coin)
+var _lootget = instance_place(x,y,obj_coin);
 if (_lootget) {
 	global.coinnum++;
 	instance_destroy(_lootget); 
 }
 
 //health
-_lootget = instance_place(x,y,obj_health)
+_lootget = instance_place(x,y,obj_health);
 if (_lootget) {
 	hp += (2 * healthrestore);
 	if (hp > maxhp) {

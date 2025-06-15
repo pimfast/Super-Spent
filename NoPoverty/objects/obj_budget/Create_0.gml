@@ -1,5 +1,8 @@
 /// @desc
 
+audio_group_stop_all(ag_mus);
+audio_play_sound(mus_budgettemp_mama,0,1)
+
 selectedoption = 1;
 lastselected = 0;
 food = false;

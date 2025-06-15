@@ -1,0 +1,30 @@
+box factory
+
+bit of standard platforming over a pit or two to get up to a mushroom enemy.
+straight forward from here is a bundle of boxes you have to jump across to reach the other side,
+the floor here is safe if you fall. and maybe on the other side is a mushroom so that it's more exciting.
+anyway at the end you have a drop to the rest of the level, and a coin on the other side.
+if you have the stats needed, you can jump all the way across and get it. otherwise, you go down
+and head right. here is a tunnel with a pit the whole way through. you have to jump over more boxes to
+get across, one of which is actually a *gasp* falling platform!
+you make it to the end of the tunnel, and there's a big-ass mushroom on a big-ass box.
+you go up and to the right and there's falling platforms that you need to step on to go down.
+you do it again but a little to the left of the first one and there's a mushroom to your right.
+now you're at the bottom again, a similair sort of tunnel type scenario. you go right and
+there's moving platforms going in a rectangular pattern over a pit. coin here if you go up-left.
+on the other side is just normal solid terrain, past that is a moving platform going diagonally downward.
+but on that platform is a mushroom you need to knock out, or off.
+other side of that is just a regular one-tile non-moving box hanging over the pit.
+past that are more moving platforms with some of them being of the falling variety.
+i really wanna do a line of falling platforms but that means coding it so it will continue walking even
+in one-pixel differences of floor height. another coin could go here too so you have to stand on the
+falling platform, wait for it to go down, collect the coin, and jump off the platform before dying.
+finally you return to solid terrain. just a couple mushrooms on boxes and platforms here and there.
+further are two giant mushrooms on moving platforms going up and down.
+just past them is the end of the level
+
+pits, 
+moving platforms, 
+falling platforms
+-
+big enemies?

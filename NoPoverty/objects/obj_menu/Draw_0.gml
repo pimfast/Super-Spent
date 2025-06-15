@@ -18,9 +18,9 @@ draw_text_transformed_color(room_width/2,room_height*0.25,"Super  Spent",2,2,0,c
 switch (selectedoption) {
 	case 0:
 		//start game
-		draw_text_color(room_width/2,room_height*0.65,"Start Game",c_white,c_white,c_white,c_white,1);
-		draw_text_color(room_width/2,room_height*0.75,"Settings",c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(room_width/2,room_height*0.85,"Quit",c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(room_width/2,room_height*0.65,global.lang[13],c_white,c_white,c_white,c_white,1);
+		draw_text_color(room_width/2,room_height*0.75,global.lang[14],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(room_width/2,room_height*0.85,global.lang[15],c_purple,c_purple,c_purple,c_purple,1);
 		if (_up) {
 			selectedoption = 2;
 		}
@@ -33,9 +33,9 @@ switch (selectedoption) {
 		break;
 	case 1:
 		//settings
-		draw_text_color(room_width/2,room_height*0.65,"Start Game",c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(room_width/2,room_height*0.75,"Settings",c_white,c_white,c_white,c_white,1);
-		draw_text_color(room_width/2,room_height*0.85,"Quit",c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(room_width/2,room_height*0.65,global.lang[13],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(room_width/2,room_height*0.75,global.lang[14],c_white,c_white,c_white,c_white,1);
+		draw_text_color(room_width/2,room_height*0.85,global.lang[15],c_purple,c_purple,c_purple,c_purple,1);
 		if (_up) {
 			selectedoption = 0;
 		}
@@ -48,9 +48,9 @@ switch (selectedoption) {
 		break;
 	case 2:
 		//quit game
-		draw_text_color(room_width/2,room_height*0.65,"Start Game",c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(room_width/2,room_height*0.75,"Settings",c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(room_width/2,room_height*0.85,"Quit",c_white,c_white,c_white,c_white,1);
+		draw_text_color(room_width/2,room_height*0.65,global.lang[13],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(room_width/2,room_height*0.75,global.lang[14],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(room_width/2,room_height*0.85,global.lang[15],c_white,c_white,c_white,c_white,1);
 		if (_up) {
 			selectedoption = 1;
 		}
@@ -64,21 +64,25 @@ switch (selectedoption) {
 	case 3:
 		//back, settings menu
 		if (window_get_fullscreen()) {
-			draw_text_color(room_width/3,room_height*0.75,"Disable\nFullscreen",c_purple,c_purple,c_purple,c_purple,1);
+			draw_text_color(room_width/3,room_height*0.75,global.lang[17],c_purple,c_purple,c_purple,c_purple,1);
 		} else {
-			draw_text_color(room_width/3,room_height*0.75,"Enable\nFullscreen",c_purple,c_purple,c_purple,c_purple,1);
+			draw_text_color(room_width/3,room_height*0.75,global.lang[18],c_purple,c_purple,c_purple,c_purple,1);
 		}
-		draw_text_color(room_width/2,room_height*0.75,"Back",c_white,c_white,c_white,c_white,1);
+		draw_text_color(room_width/2,room_height*0.75,global.lang[16],c_white,c_white,c_white,c_white,1);
 		if (audio_group_get_gain(ag_sfx)) {
-			draw_text_color((room_width/3)+(room_width/3),room_height*0.75,"Disable\nSound",c_purple,c_purple,c_purple,c_purple,1);
+			draw_text_color((room_width/3)+(room_width/3),room_height*0.75,global.lang[19],c_purple,c_purple,c_purple,c_purple,1);
 		} else {
-			draw_text_color((room_width/3)+(room_width/3),room_height*0.75,"Enable\nSound",c_purple,c_purple,c_purple,c_purple,1);
+			draw_text_color((room_width/3)+(room_width/3),room_height*0.75,global.lang[20],c_purple,c_purple,c_purple,c_purple,1);
 		}
+		draw_text_color(room_width/2,room_height*0.875,global.lang[0],c_purple,c_purple,c_purple,c_purple,1);
 		if (_left) {
 			selectedoption = 4;
 		}
 		if (_right) {
 			selectedoption = 5;
+		}
+		if (_up) || (_down) {
+			selectedoption = 6;
 		}
 		if (_confirm) {
 			selectedoption = 1;
@@ -87,16 +91,17 @@ switch (selectedoption) {
 	case 4:
 		//enable/disable fullscreen, settings menu
 		if (window_get_fullscreen()) {
-			draw_text_color(room_width/3,room_height*0.75,"Disable\nFullscreen",c_white,c_white,c_white,c_white,1);
+			draw_text_color(room_width/3,room_height*0.75,global.lang[17],c_white,c_white,c_white,c_white,1);
 		} else {
-			draw_text_color(room_width/3,room_height*0.75,"Enable\nFullscreen",c_white,c_white,c_white,c_white,1);
+			draw_text_color(room_width/3,room_height*0.75,global.lang[18],c_white,c_white,c_white,c_white,1);
 		}
-		draw_text_color(room_width/2,room_height*0.75,"Back",c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(room_width/2,room_height*0.75,global.lang[16],c_purple,c_purple,c_purple,c_purple,1);
 		if (audio_group_get_gain(ag_sfx)) {
-			draw_text_color((room_width/3)+(room_width/3),room_height*0.75,"Disable\nSound",c_purple,c_purple,c_purple,c_purple,1);
+			draw_text_color((room_width/3)+(room_width/3),room_height*0.75,global.lang[19],c_purple,c_purple,c_purple,c_purple,1);
 		} else {
-			draw_text_color((room_width/3)+(room_width/3),room_height*0.75,"Enable\nSound",c_purple,c_purple,c_purple,c_purple,1);
+			draw_text_color((room_width/3)+(room_width/3),room_height*0.75,global.lang[20],c_purple,c_purple,c_purple,c_purple,1);
 		}
+		draw_text_color(room_width/2,room_height*0.875,global.lang[0],c_purple,c_purple,c_purple,c_purple,1);
 		if (_left) {
 			selectedoption = 5;
 		}
@@ -114,16 +119,17 @@ switch (selectedoption) {
 	case 5:
 		//enable/disable volume, settings menu
 		if (window_get_fullscreen()) {
-			draw_text_color(room_width/3,room_height*0.75,"Disable\nFullscreen",c_purple,c_purple,c_purple,c_purple,1);
+			draw_text_color(room_width/3,room_height*0.75,global.lang[17],c_purple,c_purple,c_purple,c_purple,1);
 		} else {
-			draw_text_color(room_width/3,room_height*0.75,"Enable\nFullscreen",c_purple,c_purple,c_purple,c_purple,1);
+			draw_text_color(room_width/3,room_height*0.75,global.lang[18],c_purple,c_purple,c_purple,c_purple,1);
 		}
-		draw_text_color(room_width/2,room_height*0.75,"Back",c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(room_width/2,room_height*0.75,global.lang[16],c_purple,c_purple,c_purple,c_purple,1);
 		if (audio_group_get_gain(ag_sfx)) {
-			draw_text_color((room_width/3)+(room_width/3),room_height*0.75,"Disable\nSound",c_white,c_white,c_white,c_white,1);
+			draw_text_color((room_width/3)+(room_width/3),room_height*0.75,global.lang[19],c_white,c_white,c_white,c_white,1);
 		} else {
-			draw_text_color((room_width/3)+(room_width/3),room_height*0.75,"Enable\nSound",c_white,c_white,c_white,c_white,1);
+			draw_text_color((room_width/3)+(room_width/3),room_height*0.75,global.lang[20],c_white,c_white,c_white,c_white,1);
 		}
+		draw_text_color(room_width/2,room_height*0.875,global.lang[0],c_purple,c_purple,c_purple,c_purple,1);
 		if (_left) {
 			selectedoption = 3;
 		}
@@ -138,6 +144,27 @@ switch (selectedoption) {
 				audio_group_set_gain(ag_mus,1,0);
 				audio_group_set_gain(ag_sfx,1,0);
 			}
+		}
+		break;
+	case 6:
+		//toggle language, settings menu
+		if (window_get_fullscreen()) {
+			draw_text_color(room_width/3,room_height*0.75,global.lang[17],c_purple,c_purple,c_purple,c_purple,1);
+		} else {
+			draw_text_color(room_width/3,room_height*0.75,global.lang[18],c_purple,c_purple,c_purple,c_purple,1);
+		}
+		draw_text_color(room_width/2,room_height*0.75,global.lang[16],c_purple,c_purple,c_purple,c_purple,1);
+		if (audio_group_get_gain(ag_sfx)) {
+			draw_text_color((room_width/3)+(room_width/3),room_height*0.75,global.lang[19],c_purple,c_purple,c_purple,c_purple,1);
+		} else {
+			draw_text_color((room_width/3)+(room_width/3),room_height*0.75,global.lang[20],c_purple,c_purple,c_purple,c_purple,1);
+		}
+		draw_text_color(room_width/2,room_height*0.875,global.lang[0],c_white,c_white,c_white,c_white,1);
+		if (_up) || (_down) {
+			selectedoption = 3;
+		}
+		if (_confirm) {
+			loadlanguage();
 		}
 		break;
 }

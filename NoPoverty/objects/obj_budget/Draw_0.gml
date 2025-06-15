@@ -91,12 +91,12 @@ if (wash) {
 switch (selectedoption) {
 	case 0:
 		//confirm
-		draw_text_color(_necessitiesx,_foody,"Food",c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_watery,"Water",c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_sheltery,"Shelter",c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_washy,"Wash",c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(_necessitiesx,_foody,global.lang[21],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(_necessitiesx,_watery,global.lang[22],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(_necessitiesx,_sheltery,global.lang[23],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(_necessitiesx,_washy,global.lang[24],c_purple,c_purple,c_purple,c_purple,1);
 		if ((alarm_get(0) <= 0)) {
-			draw_text_color(room_width/2,_confirmy,"Confirm",c_white,c_white,c_white,c_white,1);
+			draw_text_color(room_width/2,_confirmy,global.lang[25],c_white,c_white,c_white,c_white,1);
 			if (_confirm) {
 				alarm[0] = (1 * game_get_speed(gamespeed_fps));
 			}
@@ -104,16 +104,16 @@ switch (selectedoption) {
 				selectedoption = lastselected;
 			}
 		} else {
-			draw_text_color(room_width/2,_confirmy,"Confirm",c_gray,c_gray,c_gray,c_gray,1);
+			draw_text_color(room_width/2,_confirmy,global.lang[25],c_gray,c_gray,c_gray,c_gray,1);
 		}
 		break;
 	case 1:
 		//food
-		draw_text_color(room_width/2,_confirmy,"Confirm",c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_foody,"Food",c_white,c_white,c_white,c_white,1);
-		draw_text_color(_necessitiesx,_watery,"Water",c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_sheltery,"Shelter",c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_washy,"Wash",c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(room_width/2,_confirmy,global.lang[25],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(_necessitiesx,_foody,global.lang[21],c_white,c_white,c_white,c_white,1);
+		draw_text_color(_necessitiesx,_watery,global.lang[22],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(_necessitiesx,_sheltery,global.lang[23],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(_necessitiesx,_washy,global.lang[24],c_purple,c_purple,c_purple,c_purple,1);
 		if (_confirm) {
 			if (food == false) {
 				if (global.coinnum > 0) {
@@ -138,11 +138,11 @@ switch (selectedoption) {
 		break;
 	case 2:
 		//water
-		draw_text_color(room_width/2,_confirmy,"Confirm",c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_foody,"Food",c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_watery,"Water",c_white,c_white,c_white,c_white,1);
-		draw_text_color(_necessitiesx,_sheltery,"Shelter",c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_washy,"Wash",c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(room_width/2,_confirmy,global.lang[25],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(_necessitiesx,_foody,global.lang[21],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(_necessitiesx,_watery,global.lang[22],c_white,c_white,c_white,c_white,1);
+		draw_text_color(_necessitiesx,_sheltery,global.lang[23],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(_necessitiesx,_washy,global.lang[24],c_purple,c_purple,c_purple,c_purple,1);
 		if (_confirm) {
 			if (water == false) {
 				if (global.coinnum > 0) {
@@ -167,11 +167,11 @@ switch (selectedoption) {
 		break;
 	case 3:
 		//shelter
-		draw_text_color(room_width/2,_confirmy,"Confirm",c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_foody,"Food",c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_watery,"Water",c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_sheltery,"Shelter",c_white,c_white,c_white,c_white,1);
-		draw_text_color(_necessitiesx,_washy,"Wash",c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(room_width/2,_confirmy,global.lang[25],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(_necessitiesx,_foody,global.lang[21],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(_necessitiesx,_watery,global.lang[22],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(_necessitiesx,_sheltery,global.lang[23],c_white,c_white,c_white,c_white,1);
+		draw_text_color(_necessitiesx,_washy,global.lang[24],c_purple,c_purple,c_purple,c_purple,1);
 		if (_confirm) {
 			if (shelter == false) {
 				if (global.coinnum > 0) {
@@ -196,11 +196,11 @@ switch (selectedoption) {
 		break;
 	case 4:
 		//wash
-		draw_text_color(room_width/2,_confirmy,"Confirm",c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_foody,"Food",c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_watery,"Water",c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_sheltery,"Shelter",c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_washy,"Wash",c_white,c_white,c_white,c_white,1);
+		draw_text_color(room_width/2,_confirmy,global.lang[25],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(_necessitiesx,_foody,global.lang[21],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(_necessitiesx,_watery,global.lang[22],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(_necessitiesx,_sheltery,global.lang[23],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(_necessitiesx,_washy,global.lang[24],c_white,c_white,c_white,c_white,1);
 		if (_confirm) {
 			if (wash == false) {
 				if (global.coinnum > 0) {
