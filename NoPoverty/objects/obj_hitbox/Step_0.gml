@@ -1,17 +1,19 @@
 /// @desc
 
-x = ((owner.x + (owner.dir*attackdistance)) - (attacksize/2));
-y = ((owner.y + attackheight) - (attacksize/2));
+if (owner != self) {
+	x = ((owner.x + (owner.dir*attackdistance)) - (attacksize/2));
+	y = ((owner.y + attackheight) - (attacksize/2));
+}
 
 //instance_create_depth(x,y,0,obj_health)
 
 //check for colliding hurtables and hurt
 var _list = ds_list_create();
 var _num;
-if (owner != noone) {
+if (owner != self) {
 	_num = collision_rectangle_list(x,y,x+attacksize,y+attacksize,obj_hurtable,false,true,_list,false);
 } else {
-	_num = collision_rectangle_list(x,y,x*image_xscale,y*image_yscale,obj_hurtable,false,true,_list,false);
+	_num = collision_rectangle_list(x,y,x+image_xscale,y+image_yscale,obj_hurtable,false,true,_list,false);
 }
 if (_num > 0) {
 	for (var i = 0; i < _num; ++i;) {
@@ -60,7 +62,9 @@ if (_num > 0) {
 					_victim.caninput = false;
 					_victim.myhitbox.active = false;
 					
-					array_push(hitlist,_victim.id);
+					if (owner != self) {
+						array_push(hitlist,_victim.id);
+					}
 				}
 			}
 		}

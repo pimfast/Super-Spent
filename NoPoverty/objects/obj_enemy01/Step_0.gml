@@ -10,6 +10,7 @@ vsp = (vsp + grv);
 if (bonushsp > 0) {bonushsp -= 0.5;}
 if (bonushsp < 0) {bonushsp += 0.5;}
 
+//damage received sprite change
 if (caninput == false) {
 	if (!place_meeting(x,y+vsp,obj_collision)) && (!place_meeting(x,y+vsp,obj_halfcollision)) {
 		sprite_index = spr_cock_attacked;
@@ -24,7 +25,9 @@ if (place_meeting(x+hsp,y,obj_collision)) || (place_meeting(x+hsp,y,obj_enemy)) 
 		x = x + sign(hsp);
 	}
 	hsp = 0;
-	dir *= -1; //issue: getting knocked into wall changes direction even if not facing wall
+	if (caninput == true) {
+		dir *= -1;
+	}
 }
 x += hsp;
 

@@ -1,0 +1,1 @@
+![cool pic](https://github.com/pimfast/Super-Spent/blob/main/NoPoverty/sprites/spr_shroom_idle/layers/a30383d7-ad19-4f0c-8de9-035760b6bb06/b3886203-2936-4b6f-a8f2-a0b7cf92c4a5.png)

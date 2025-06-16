@@ -84,7 +84,13 @@ if (array_equals(global.lang,english)) {
 	global.lang = english;
 }
 
+//temp code delete this when next code is coded
+global.level = 1;
+global.debufflog = [];
+global.playerdowngrades = [0,0,0,0];
 //>insert code that changes debufflog here<
+//it checks the whole global.debufflog array and for each one checks its
+//to see if it matches english or dutch and changes it to the other language
 
 global.downgradesFood = [
 global.lang[1],

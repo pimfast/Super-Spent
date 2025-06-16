@@ -6,8 +6,13 @@ if (dir = 1) {image_xscale = 1;}
 //move
 vsp = (vsp + grv);
 
+//damage received sprite change
+if (caninput == false) {
+	sprite_index = spr_shroom_attacked;
+}
+
 //vertical collision
-if (place_meeting(x,y+vsp,obj_collision)) {	
+if (place_meeting(x,y+vsp,obj_collision)) || (place_meeting(x,y+vsp,obj_enemy)) {	
 	while (!place_meeting(x,y+sign(vsp),obj_collision)) {
 		y = y + sign(vsp);
 	}

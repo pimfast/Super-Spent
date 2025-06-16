@@ -168,3 +168,7 @@ switch (selectedoption) {
 		}
 		break;
 }
+
+if (keyboard_check_pressed(vk_escape)) {
+	selectedoption = 0;
+}

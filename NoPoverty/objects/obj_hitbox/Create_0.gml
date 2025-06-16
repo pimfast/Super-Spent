@@ -1,17 +1,14 @@
 /// @desc
 
-owner = noone;
+owner = self;
 
-attacksize = 5;
+attacksize = image_xscale;
 attackdistance = 0;
 attackheight = 0;
-dmg = 1;
+dmg = 5;
 stundur = 0.25;
-hknockback = 1;
-vknockback = -1;
-active = true;
-damagesPlayer = false;
-damagesEnemies = false;
-
+hknockback = 6;
+vknockback = -8;
+active = true;	
 
 hitlist = [];

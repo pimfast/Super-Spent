@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "__mid",
+  "name": "mus_level1temp_plusdotdotplus2",
   "audioGroupId": {
     "name": "ag_mus",
     "path": "audiogroups/ag_mus",
@@ -17,7 +17,7 @@
   },
   "preload": false,
   "sampleRate": 44100,
-  "soundFile": "__mid.mp3",
+  "soundFile": "mus_level1temp_plusdotdotplus2.mp3",
   "type": 0,
   "volume": 1.0,
 }

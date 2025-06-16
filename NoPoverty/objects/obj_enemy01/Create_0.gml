@@ -17,6 +17,7 @@ myhitbox.image_yscale = _attacksize;
 myhitbox.attacksize = _attacksize;
 myhitbox.attackdistance = _attackdistance;
 myhitbox.attackheight = _attackheight;
+myhitbox.damagesEnemies = false;
 myhitbox.damagesPlayer = true;
 myhitbox.owner = self;
 			
