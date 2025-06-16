@@ -2,9 +2,9 @@ function loadlanguage(){
 english = [
 "Nederlands",
 //debuffs
-"Hungry: Removes 3rd hit of combo",
-"Famished: Attacks won't stun enemies",
-"Starving: Enemies regenerate health",
+"Hungry: -50% damage",
+"Famished: Removes 3rd hit of combo",
+"Starving: Attacks won't stun enemies",
 "Thirsty: -15% jump height",
 "Dehydrated: Jumping requires charge",
 "Husk: 20% increased gravity",
@@ -31,19 +31,19 @@ english = [
 "Wash",
 "Confirm",
 //tutorial
-"Use the arrow keys to move", //26
-"Press the spacebar to jump",
-"Press A to attack",
-"Hold S to strafe",
-"Attack 3 times quickly to perform a combo!",
-"Hold up while performing a 3-hit-combo to uppercut and escape!"
+"Press the spacebar to jump", //26
+"Press A to attack, beginning or continuing a combo",
+"Hold S to strafe\nThis locks your direction, making attacking easier",
+"Hold S to strafe\nThis also increases air speed",
+"Attack 3 times quickly for a powerful blow!",
+"Hold UP while performing a 3-hit-combo to uppercut and escape!"
 ]
 dutch = [
 "English",
 //debuffs
-"Hongerig: Neemt de 3e treffer van combo weg",
-"Uitgehongerd: Aanvallen zou vijanden niet verbijsteren",
-"Skelet: Vijanden regenereren HP",
+"Hongerig: -50% kracht",
+"Uitgehongerd: Neemt de 3e treffer van combo weg",
+"Skelet: Aanvallen zou vijanden niet verbijsteren",
 "Dorstig: -15% spronghoogte",
 "Uitgedroogd: Springen vereisen energie",
 "Lijk: 20% meer zwaartekracht",
@@ -70,12 +70,12 @@ dutch = [
 "Wassen",
 "Bevestigen",
 //tutorial
-"Gebruik de arrow keys om te bewegen", //26
-"Druk the spacebar to jump",
-"Druk A om te attack",
-"Hold S om te strafe",
-"Attack 3 times quickly om te perform a combo!",
-"Hold op while performing a 3-hit-combo om te uppercut en escape!"
+"Druk de spacebar om te gaan springen", //26
+"Druk A om aan te vallen, dit begint jou combo of zet jou combo voort",
+"Houd S ingedrukt om te straffen\nDit maakt je richting vastgelegd, waardoor aanvallen makkelijker wordt",
+"Houd S ingedrukt om te straffen\nDit stijgt ook lucht snelheid",
+"Aanval snel 3 keer voor een krachtige klap!",
+"Houd de omhoogknop ingedrukt terwijl je een 3-hit-combo doet om een uppercut en ontsnappen te gaan doen!"
 ]
 
 if (array_equals(global.lang,english)) {

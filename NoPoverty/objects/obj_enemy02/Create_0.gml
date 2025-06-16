@@ -22,7 +22,7 @@ myhitbox.damagesEnemies = false;
 myhitbox.damagesPlayer = true;
 myhitbox.owner = self;
 
-myhitbox.dmg = 2;
+myhitbox.dmg = 3;
 myhitbox.hknockback = 6;
 myhitbox.vknockback = -3;
 myhitbox.stundur = 0.5;

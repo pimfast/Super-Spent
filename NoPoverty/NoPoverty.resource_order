@@ -66,7 +66,7 @@
     {"name":"ts_level3","order":2,"path":"tilesets/ts_level3/ts_level3.yy",},
     {"name":"spr_tileset2","order":11,"path":"sprites/spr_tileset2/spr_tileset2.yy",},
     {"name":"obj_hitbox","order":5,"path":"objects/obj_hitbox/obj_hitbox.yy",},
-    {"name":"nt_BRAINBLAST","order":1,"path":"notes/nt_BRAINBLAST/nt_BRAINBLAST.yy",},
+    {"name":"spr_movingplatform","order":22,"path":"sprites/spr_movingplatform/spr_movingplatform.yy",},
     {"name":"spr_cock_attacked","order":19,"path":"sprites/spr_cock_attacked/spr_cock_attacked.yy",},
     {"name":"spr_mud","order":2,"path":"sprites/spr_mud/spr_mud.yy",},
     {"name":"spr_cock_stunned","order":20,"path":"sprites/spr_cock_stunned/spr_cock_stunned.yy",},

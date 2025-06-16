@@ -33,8 +33,8 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "spr_fallingplatform",
-    "path": "sprites/spr_fallingplatform/spr_fallingplatform.yy",
+    "name": "spr_movingplatform",
+    "path": "sprites/spr_movingplatform/spr_movingplatform.yy",
   },
   "spriteMaskId": null,
   "visible": true,

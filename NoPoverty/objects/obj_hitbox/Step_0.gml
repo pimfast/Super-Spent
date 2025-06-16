@@ -19,7 +19,11 @@ if (_num > 0) {
 	for (var i = 0; i < _num; ++i;) {
 		var _victim = _list[| i];
 		if (_victim != owner.id) && (damagesPlayer == true) {
-			if (instance_exists(obj_player)) && (_victim == obj_player.id) && (!_victim.invincible) && (active == true) {
+			if (instance_exists(obj_player)) && (_victim == obj_player.id) && (active == true) {
+				//check for stuff. done this way to make sure pits always hurt.
+				if (owner != self) && (_victim.invincible) {
+					break;
+				}
 				//apply damage to player
 				_victim.hp -= dmg;
 				if (_victim.hp <= 0) {

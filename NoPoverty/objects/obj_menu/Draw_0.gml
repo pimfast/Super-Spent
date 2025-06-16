@@ -170,5 +170,13 @@ switch (selectedoption) {
 }
 
 if (keyboard_check_pressed(vk_escape)) {
-	selectedoption = 0;
+	if (selectedoption >= 3) {
+		selectedoption = 1;
+	} else {
+		if (selectedoption <= 1) {
+			selectedoption = 2;
+		} else {
+			game_end();
+		}
+	}
 }

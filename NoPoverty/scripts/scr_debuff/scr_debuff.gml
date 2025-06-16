@@ -2,7 +2,7 @@ function debuffneccessities(food,water,shelter,wash){
 	if (food == false) {
 		switch (global.playerdowngrades[0]) {
 			case 0:
-				// code here
+				global.dmg *= 0.6;
 				break;
 			case 1:
 				// code here

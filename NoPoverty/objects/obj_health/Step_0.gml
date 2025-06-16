@@ -33,7 +33,7 @@ if (place_meeting(x,y+vsp,obj_collision)) {
 	}
 	vsp = 0;
 	if (alarm[0] == -1) && (alarm[1] = -1) {
-		alarm[1] = (3 * game_get_speed(gamespeed_fps));
+		alarm[1] = (4 * game_get_speed(gamespeed_fps));
 	}
 }
 if (sign(vsp) >= 0) && (place_meeting(x,y+vsp,obj_halfcollision)) {	
@@ -42,7 +42,7 @@ if (sign(vsp) >= 0) && (place_meeting(x,y+vsp,obj_halfcollision)) {
 	}
 	vsp = 0;
 	if (alarm[0] == -1) && (alarm[1] = -1) {
-		alarm[1] = (3 * game_get_speed(gamespeed_fps));
+		alarm[1] = (4 * game_get_speed(gamespeed_fps));
 	}
 }
 y += vsp;

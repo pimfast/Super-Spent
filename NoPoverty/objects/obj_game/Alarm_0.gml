@@ -1,3 +1,4 @@
-/// @desc dead, return to save point
+/// @desc dead
 
-game_restart();
+global.coinnum = 0;
+room_goto(rm_menu);
