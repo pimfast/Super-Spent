@@ -8,6 +8,8 @@ if (room == rm_level1) {
 	defwalksp = 2.3; walksp = defwalksp; //how fast you go
 	jumpsp = -6.0; //less is more
 	healthrestore = 1; //how much dropped health heals you
+	comboable = [true,true,true,true];
+	stunpow = 1;
 	
 	global.maxhp = maxhp; //health
 	global.dmg = dmg; //damage multiplier
@@ -15,6 +17,8 @@ if (room == rm_level1) {
 	global.defwalksp = defwalksp; //how fast you go
 	global.jumpsp = jumpsp; //less is more
 	global.healthrestore = healthrestore; //how much dropped health heals you
+	global.comboable = comboable;
+	global.stunpow = stunpow;
 } else {
 	maxhp = global.maxhp; hp = maxhp; //health
 	dmg = global.dmg; //damage multiplier
@@ -22,6 +26,8 @@ if (room == rm_level1) {
 	defwalksp = global.defwalksp; walksp = defwalksp; //how fast you go
 	jumpsp = global.jumpsp; //less is more
 	healthrestore = global.healthrestore; //how much dropped health heals you
+	comboable = global.comboable;
+	stunpow = global.stunpow;
 }
 
 //necessary code (do not / cannot change)
@@ -38,4 +44,3 @@ invincible = false;
 caninput = false;
 combopart = 0;
 myhitbox = noone;
-muddy = false;

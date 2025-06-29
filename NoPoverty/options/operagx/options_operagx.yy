@@ -4,7 +4,7 @@
   "name": "Opera GX",
   "option_operagx_display_cursor": true,
   "option_operagx_editUrl": "",
-  "option_operagx_game_name": "Poverty Spree",
+  "option_operagx_game_name": "Super Spent",
   "option_operagx_guid": "",
   "option_operagx_internalShareUrl": "",
   "option_operagx_interpolate_pixels": false,

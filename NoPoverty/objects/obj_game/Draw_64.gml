@@ -1,8 +1,44 @@
 /// @desc
 
-//draw_set_font(fnt_01);
-//draw_set_halign(fa_center);
-//draw_set_valign(fa_middle);
+draw_set_font(fnt_01);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
+
+var _transitionspeed = 20; //10
+if (transitionchange == false) {
+	if (obj_transition.x > (obj_camera.camerax - obj_transition.sprite_width)) {
+		transitionx -= _transitionspeed;
+		obj_transition.x = (obj_camera.camerax + transitionx);
+	}
+}
+if (transitionchange == true) {
+	if (obj_game.transitionx <= 0) {
+		if (room != rm_level4) {
+			if (obj_changeroom.desiredroom == noone) {
+				global.level++;
+				room_goto(rm_budget);
+			} else {
+				room_goto(obj_changeroom.desiredroom);
+			}
+		} else {
+			//idk you win
+			var _wincolor = make_color_rgb(247,142,214);
+			draw_text_color(obj_camera.camerawidth/2,obj_camera.cameraheight/2,global.lang[32],_wincolor,_wincolor,_wincolor,_wincolor,1);
+			if (global.coinnum >= 4) && (global.playerdowngrades[0] <= 0) && (global.playerdowngrades[1] <= 0) && (global.playerdowngrades[2] <= 0) && (global.playerdowngrades[3] <= 0) {
+				draw_text_color(obj_camera.camerawidth/2,obj_camera.cameraheight*0.8,global.lang[33],_wincolor,_wincolor,_wincolor,_wincolor,1);
+			}
+			if (global.coinnum <= 0) && (global.playerdowngrades[0] >= 3) && (global.playerdowngrades[1] >= 3) && (global.playerdowngrades[2] >= 3) && (global.playerdowngrades[3] >= 3) {
+				draw_text_color(obj_camera.camerawidth/2,obj_camera.cameraheight*0.8,global.lang[34],_wincolor,_wincolor,_wincolor,_wincolor,1);
+			}
+		}
+	}
+	if (transitionx - _transitionspeed <= 0) {
+		transitionx = 0;
+	} else {
+		transitionx -= _transitionspeed;
+		obj_transition.x = (obj_camera.camerax + transitionx);
+	}
+}
 
 if (instance_exists(obj_player)) {
 	var _hudsprite;
@@ -28,18 +64,38 @@ if (instance_exists(obj_player)) {
 		_startdistance += (sprite_get_height(_hudsprite) + _betweendistance); 
 	}
 	
-	//draw coin outlines and coins
+	//draw coin outlines
 	for(var i = (roomcoins - global.coinnum); i > 0; i--) {
 		draw_sprite_stretched(_hudsprite,1,30,_startdistance,sprite_get_width(_hudsprite),sprite_get_height(_hudsprite));
 		_startdistance += (sprite_get_height(_hudsprite) + _betweendistance); 
 	}
 	
+	//draw points
+	draw_set_halign(fa_right);
+	draw_set_font(fnt_02);
+	var _pointscolor;
+	var _maxpointsheight = 5;
+	var _normalpointsheight = 15;
+	if (obj_game.pointsheight < _maxpointsheight) {
+		obj_game.pointsheight = _maxpointsheight
+	}
+	if (pointsheight < _normalpointsheight) {
+		_pointscolor = make_color_rgb(247,142,214);
+		pointsheight += 0.5;
+	} else {
+		_pointscolor = c_white;
+	}
+	if (global.points > 0) {
+		//draw_text_color(obj_camera.camerawidth-_normalpointsheight,pointsheight,string(global.points),_pointscolor,_pointscolor,_pointscolor,_pointscolor,1);
+	}
+	
 	//draw tutorial
 	draw_set_font(fnt_01);
+	draw_set_halign(fa_center);
 	var _tutcolor = make_color_rgb(247,142,214);
 	if (room == rm_level1) {
 		var _tuttext = "";
-		if (obj_player.x > 128) && (obj_player.x < 256) {
+		if (obj_player.x > 128) && (obj_player.x < 224) {
 			_tuttext = global.lang[26];
 		}
 		if (obj_player.x > 256) && (obj_player.x < 496) {
@@ -52,9 +108,10 @@ if (instance_exists(obj_player)) {
 			_tuttext = global.lang[29];
 		}
 		if (obj_player.x > 2336) && (obj_player.x < 2720) && (obj_player.y > 48) {
-			_tuttext = global.lang[30];
 			if (tutpitpart2 == true) {
 				_tuttext = global.lang[31];
+			} else {
+				_tuttext = global.lang[30];
 			}
 		}
 		if (obj_player.x > 2688) && (obj_player.x < 2720) && (obj_player.y > 64) {

@@ -12,8 +12,8 @@ var _attackdistance = 0;
 var _attackheight = 0;
 			
 myhitbox = instance_create_depth(x,y,0,obj_hitbox);
-myhitbox.image_xscale = _attacksize;
-myhitbox.image_yscale = _attacksize;
+myhitbox.image_xscale = (_attacksize * image_xscale);
+myhitbox.image_yscale = (_attacksize * image_yscale);
 myhitbox.attacksize = _attacksize;
 myhitbox.attackdistance = _attackdistance;
 myhitbox.attackheight = _attackheight;

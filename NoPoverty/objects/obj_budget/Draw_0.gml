@@ -8,35 +8,30 @@ var _confirm = keyboard_check_pressed(vk_space);
 if (!_confirm) {
 	_confirm = keyboard_check_pressed(vk_enter);
 }
-var _mouseup = mouse_wheel_up();
-var _mousedown = mouse_wheel_down();
 
-//wait why are we doing mouse controls now? idk do something about this later
-if (_mouseup) {
-	if (logstarty < 10) {
-		logstarty += 10;
-	}
-}
-if (_mousedown) {
-	logstarty -= 10;
-}
-
-if (global.coinnum != 0) {
-	_left = 0;
-	_right = 0;
+if (instance_exists(obj_transition)) {
+	obj_transition.image_alpha += 0.05;
+	if (obj_transition.image_alpha >= 1.5) {
+		room_goto(asset_get_index("rm_level"+string(global.level)));
+	}	
 }
 
 draw_set_font(fnt_01);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
-//draw_text_ext(room_width*0.75,10,global.debufflog,3,50);
-//AND NOW FOR MY GREATEST FEAT OF PROGRAMMING:
+
+//draw debuff log
 var _logarraylength = array_length(global.debufflog);
 var _debufflogx = ((room_width/3)+(room_width/3));
 var _debufflogy = 0;
 var _olddebuffcolor = c_white;
-var _newdebuffcolor = c_purple;
+var _newdebuffcolor = c_red;
 var _canceldebuffcolor = c_gray;
+if (selectedoption == 5) {
+	var _olddebuffcolor = make_color_rgb(255,255,255);
+	var _newdebuffcolor = make_color_rgb(255,50,50);
+	var _canceldebuffcolor = make_color_rgb(178,178,178);
+}
 for (var i = 0; i < _logarraylength; i++) {
 	if (global.debufflog[i] != global.downgradesFood[global.playerdowngrades[0]]) && (global.debufflog[i] != global.downgradesWater[global.playerdowngrades[1]]) && (global.debufflog[i] != global.downgradesShelter[global.playerdowngrades[2]]) && (global.debufflog[i] != global.downgradesWash[global.playerdowngrades[3]]){
 		draw_set_color(_olddebuffcolor);
@@ -66,6 +61,12 @@ for(var i = global.coinnum; i > 0; i--) {
 	_startdistance += (sprite_get_height(_coinsprite) + _betweendistance); 
 }
 
+//confirm button is hidden until all coins are used up
+var _confirmalpha = 0;
+if (global.coinnum == 0) {
+	_confirmalpha = 1; //it would be nice to have it fade in but that's for future
+}
+
 //menu options
 var _necessitiesx = (room_width * 0.20)
 var _confirmy = (room_height * 0.65)
@@ -88,20 +89,26 @@ if (wash) {
 	draw_sprite(spr_hudcoin,0,_necessitiesx + _necessitiescoindistance, _washy-8)
 }
 
+var _selectedcolor = c_white;
+var _unselectedcolor = make_color_rgb(247,142,214);
 switch (selectedoption) {
 	case 0:
 		//confirm
-		draw_text_color(_necessitiesx,_foody,global.lang[21],c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_watery,global.lang[22],c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_sheltery,global.lang[23],c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_washy,global.lang[24],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(_necessitiesx,_foody,global.lang[21],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,1);
+		draw_text_color(_necessitiesx,_watery,global.lang[22],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,1);
+		draw_text_color(_necessitiesx,_sheltery,global.lang[23],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,1);
+		draw_text_color(_necessitiesx,_washy,global.lang[24],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,1);
 		if ((alarm_get(0) <= 0)) {
-			draw_text_color(room_width/2,_confirmy,global.lang[25],c_white,c_white,c_white,c_white,1);
+			draw_text_color(room_width/2,_confirmy,global.lang[25],_selectedcolor,_selectedcolor,_selectedcolor,_selectedcolor,_confirmalpha);
 			if (_confirm) {
+				audio_play_sound(sfx_select,0,0);
 				alarm[0] = (1 * game_get_speed(gamespeed_fps));
 			}
-			if (_left) || (_right) {
+			if (_left) {
 				selectedoption = lastselected;
+			}
+			if (_right) {
+				selectedoption = 5;
 			}
 		} else {
 			draw_text_color(room_width/2,_confirmy,global.lang[25],c_gray,c_gray,c_gray,c_gray,1);
@@ -109,12 +116,13 @@ switch (selectedoption) {
 		break;
 	case 1:
 		//food
-		draw_text_color(room_width/2,_confirmy,global.lang[25],c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_foody,global.lang[21],c_white,c_white,c_white,c_white,1);
-		draw_text_color(_necessitiesx,_watery,global.lang[22],c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_sheltery,global.lang[23],c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_washy,global.lang[24],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(room_width/2,_confirmy,global.lang[25],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,_confirmalpha);
+		draw_text_color(_necessitiesx,_foody,global.lang[21],_selectedcolor,_selectedcolor,_selectedcolor,_selectedcolor,1);
+		draw_text_color(_necessitiesx,_watery,global.lang[22],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,1);
+		draw_text_color(_necessitiesx,_sheltery,global.lang[23],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,1);
+		draw_text_color(_necessitiesx,_washy,global.lang[24],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,1);
 		if (_confirm) {
+			audio_play_sound(sfx_select,0,0);
 			if (food == false) {
 				if (global.coinnum > 0) {
 					food = true;
@@ -131,19 +139,29 @@ switch (selectedoption) {
 		if (_down) {
 			selectedoption = 2;
 		}
-		if (_left) || (_right) {
+		if (_left) {
 			lastselected = selectedoption;
-			selectedoption = 0;
+			selectedoption = 5;
+		}
+		if (_right) {
+			if (global.coinnum == 0) {
+				lastselected = selectedoption;
+				selectedoption = 0;
+			} else {
+				lastselected = selectedoption;
+				selectedoption = 5;
+			}
 		}
 		break;
 	case 2:
 		//water
-		draw_text_color(room_width/2,_confirmy,global.lang[25],c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_foody,global.lang[21],c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_watery,global.lang[22],c_white,c_white,c_white,c_white,1);
-		draw_text_color(_necessitiesx,_sheltery,global.lang[23],c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_washy,global.lang[24],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(room_width/2,_confirmy,global.lang[25],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,_confirmalpha);
+		draw_text_color(_necessitiesx,_foody,global.lang[21],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,1);
+		draw_text_color(_necessitiesx,_watery,global.lang[22],_selectedcolor,_selectedcolor,_selectedcolor,_selectedcolor,1);
+		draw_text_color(_necessitiesx,_sheltery,global.lang[23],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,1);
+		draw_text_color(_necessitiesx,_washy,global.lang[24],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,1);
 		if (_confirm) {
+			audio_play_sound(sfx_select,0,0);
 			if (water == false) {
 				if (global.coinnum > 0) {
 					water = true;
@@ -160,19 +178,29 @@ switch (selectedoption) {
 		if (_down) {
 			selectedoption = 3;
 		}
-		if (_left) || (_right) {
+		if (_left) {
 			lastselected = selectedoption;
-			selectedoption = 0;
+			selectedoption = 5;
+		}
+		if (_right) {
+			if (global.coinnum == 0) {
+				lastselected = selectedoption;
+				selectedoption = 0;
+			} else {
+				lastselected = selectedoption;
+				selectedoption = 5;
+			}
 		}
 		break;
 	case 3:
 		//shelter
-		draw_text_color(room_width/2,_confirmy,global.lang[25],c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_foody,global.lang[21],c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_watery,global.lang[22],c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_sheltery,global.lang[23],c_white,c_white,c_white,c_white,1);
-		draw_text_color(_necessitiesx,_washy,global.lang[24],c_purple,c_purple,c_purple,c_purple,1);
+		draw_text_color(room_width/2,_confirmy,global.lang[25],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,_confirmalpha);
+		draw_text_color(_necessitiesx,_foody,global.lang[21],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,1);
+		draw_text_color(_necessitiesx,_watery,global.lang[22],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,1);
+		draw_text_color(_necessitiesx,_sheltery,global.lang[23],_selectedcolor,_selectedcolor,_selectedcolor,_selectedcolor,1);
+		draw_text_color(_necessitiesx,_washy,global.lang[24],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,1);
 		if (_confirm) {
+			audio_play_sound(sfx_select,0,0);
 			if (shelter == false) {
 				if (global.coinnum > 0) {
 					shelter = true;
@@ -189,19 +217,29 @@ switch (selectedoption) {
 		if (_down) {
 			selectedoption = 4;
 		}
-		if (_left) || (_right) {
+		if (_left) {
 			lastselected = selectedoption;
-			selectedoption = 0;
+			selectedoption = 5;
+		}
+		if (_right) {
+			if (global.coinnum == 0) {
+				lastselected = selectedoption;
+				selectedoption = 0;
+			} else {
+				lastselected = selectedoption;
+				selectedoption = 5;
+			}
 		}
 		break;
 	case 4:
 		//wash
-		draw_text_color(room_width/2,_confirmy,global.lang[25],c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_foody,global.lang[21],c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_watery,global.lang[22],c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_sheltery,global.lang[23],c_purple,c_purple,c_purple,c_purple,1);
-		draw_text_color(_necessitiesx,_washy,global.lang[24],c_white,c_white,c_white,c_white,1);
+		draw_text_color(room_width/2,_confirmy,global.lang[25],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,_confirmalpha);
+		draw_text_color(_necessitiesx,_foody,global.lang[21],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,1);
+		draw_text_color(_necessitiesx,_watery,global.lang[22],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,1);
+		draw_text_color(_necessitiesx,_sheltery,global.lang[23],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,1);
+		draw_text_color(_necessitiesx,_washy,global.lang[24],_selectedcolor,_selectedcolor,_selectedcolor,_selectedcolor,1);
 		if (_confirm) {
+			audio_play_sound(sfx_select,0,0);
 			if (wash == false) {
 				if (global.coinnum > 0) {
 					wash = true;
@@ -218,9 +256,49 @@ switch (selectedoption) {
 		if (_down) {
 			selectedoption = 1;
 		}
-		if (_left) || (_right) {
+		if (_left) {
 			lastselected = selectedoption;
-			selectedoption = 0;
+			selectedoption = 5;
+		}
+		if (_right) {
+			if (global.coinnum == 0) {
+				lastselected = selectedoption;
+				selectedoption = 0;
+			} else {
+				lastselected = selectedoption;
+				selectedoption = 5;
+			}
+		}
+		break;
+	case 5:
+		//log
+		_up = keyboard_check(vk_up);
+		_down = keyboard_check(vk_down);
+		draw_text_color(room_width/2,_confirmy,global.lang[25],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,_confirmalpha);
+		draw_text_color(_necessitiesx,_foody,global.lang[21],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,1);
+		draw_text_color(_necessitiesx,_watery,global.lang[22],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,1);
+		draw_text_color(_necessitiesx,_sheltery,global.lang[23],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,1);
+		draw_text_color(_necessitiesx,_washy,global.lang[24],_unselectedcolor,_unselectedcolor,_unselectedcolor,_unselectedcolor,1);
+		if (_confirm) {
+			//audio_play_sound(sfx_select,0,0);
+		}
+		if (_up) {
+			if (logstarty < 10) {
+				logstarty += 2; //10
+			}
+		}
+		if (_down) {
+			logstarty -= 2;
+		}
+		if (_left) {
+			if (global.coinnum == 0) {
+				selectedoption = 0;
+			} else {
+				selectedoption = lastselected;
+			}
+		}
+		if (_right) {
+			selectedoption = lastselected;
 		}
 		break;
 }

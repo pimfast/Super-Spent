@@ -2,13 +2,13 @@ function debuffneccessities(food,water,shelter,wash){
 	if (food == false) {
 		switch (global.playerdowngrades[0]) {
 			case 0:
-				global.dmg *= 0.6;
+				global.dmg *= 0.55;
 				break;
 			case 1:
-				// code here
+				global.comboable[3] = false;
 				break;
 			case 2:
-				// code here
+				global.stunpow = 0.1;
 				break;
 		}
 		global.playerdowngrades[0] += 1;
@@ -19,10 +19,10 @@ function debuffneccessities(food,water,shelter,wash){
 				global.jumpsp *= 0.85;
 				break;
 			case 1:
-				// code here
+				// no code needed :)
 				break;
 			case 2:
-				global.grv *= 1.2;
+				//global.grv *= 1.2;
 				break;
 		}
 		global.playerdowngrades[1] += 1;
@@ -33,10 +33,10 @@ function debuffneccessities(food,water,shelter,wash){
 				global.defwalksp *= 0.75;
 				break;
 			case 1:
-				// code here
+				// no code needed :)
 				break;
 			case 2:
-				// code here
+				global.defwalksp *= 0.70;
 				break;
 		}
 		global.playerdowngrades[2] += 1;
@@ -50,7 +50,9 @@ function debuffneccessities(food,water,shelter,wash){
 				global.healthrestore *= 0.5;
 				break;
 			case 2:
-				global.healthrestore = 0;
+				global.maxhp -= 1; //*0.9 = 5.4 L
+				global.jumpsp *= 0.9;
+				global.defwalksp *= 0.9;
 				break;
 		}
 		global.playerdowngrades[3] += 1;

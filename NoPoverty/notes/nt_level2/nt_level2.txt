@@ -12,6 +12,7 @@ you go up and to the right and there's falling platforms that you need to step o
 you do it again but a little to the left of the first one and there's a mushroom to your right.
 now you're at the bottom again, a similair sort of tunnel type scenario. you go right and
 there's moving platforms going in a rectangular pattern over a pit. coin here if you go up-left.
+
 on the other side is just normal solid terrain, past that is a moving platform going diagonally downward.
 but on that platform is a mushroom you need to knock out, or off.
 other side of that is just a regular one-tile non-moving box hanging over the pit.

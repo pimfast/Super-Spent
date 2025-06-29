@@ -5,7 +5,7 @@ hp = 5; //health
 dmg = 1; //damage
 grv = 0.34; //lower is lighter higher is heavier
 walksp = 0.5; //how fast it goes
-firingrate = 1.5; //how often it fires
+firingrate = 2; //how often it fires
 
 //hitbox
 var _attacksize = 12;
@@ -13,8 +13,8 @@ var _attackdistance = 0;
 var _attackheight = 1;
 
 myhitbox = instance_create_depth((x+(dir*_attackdistance)) - (_attacksize/2),(y+_attackheight) - (_attacksize/2),0,obj_hitbox);
-myhitbox.image_xscale = _attacksize;
-myhitbox.image_yscale = _attacksize;
+myhitbox.image_xscale = (_attacksize * image_xscale);
+myhitbox.image_yscale = (_attacksize * image_yscale);
 myhitbox.attacksize = _attacksize;
 myhitbox.attackdistance = _attackdistance;
 myhitbox.attackheight = _attackheight;

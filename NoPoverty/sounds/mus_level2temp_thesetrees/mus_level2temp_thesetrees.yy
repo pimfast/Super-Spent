@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "mus_level2temp_thesetrees.mp3",
   "type": 1,
-  "volume": 1.0,
+  "volume": 0.3,
 }

@@ -25,6 +25,8 @@ if (_num > 0) {
 					break;
 				}
 				//apply damage to player
+				audio_play_sound(sfx_hurt,0,0);
+				_victim.sprite_index = spr_player_hurt; 
 				_victim.hp -= dmg;
 				if (_victim.hp <= 0) {
 					//kill
@@ -41,6 +43,9 @@ if (_num > 0) {
 					_victim.caninput = false;
 					_victim.combopart = 0;
 					_victim.alarm[0] = (stundur * game_get_speed(gamespeed_fps));
+					
+					//cancel joomp
+					_victim.alarm[3] = -1;
 				}
 			}
 		}
@@ -49,6 +54,7 @@ if (_num > 0) {
 				//apply damage to enemy
 				_victim.hp -= dmg;
 				if (_victim.hp <= 0) {
+					audio_play_sound(sfx_hurt,0,0);
 					if (obj_player.healthrestore > 0) {
 						var _health = instance_create_layer(_victim.x,_victim.y,"Pickups",obj_health);
 						_health.bonushsp += (hknockback*owner.dir);
@@ -59,6 +65,7 @@ if (_num > 0) {
 					instance_destroy(_victim);
 				} else {
 					//apply knockback and stun
+					audio_play_sound(sfx_hit02,0,0);
 					_victim.bonushsp += (hknockback*owner.dir);
 					_victim.vsp = vknockback;
 					_victim.alarm[0] = (stundur * game_get_speed(gamespeed_fps));
