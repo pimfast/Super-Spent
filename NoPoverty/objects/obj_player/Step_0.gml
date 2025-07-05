@@ -21,18 +21,17 @@ if (caninput) {
 	}
 }
 
-if (caninput) {
-	sprite_index = spr_player_idle;
-	image_speed = 1;
-	if (_left) || (_right) {
-		sprite_index = spr_player_run;
-	}
-	if (!place_meeting(x,y+sign(grv),obj_collision)) && (!place_meeting(x,y+sign(grv),obj_halfcollision)) {
-		sprite_index = spr_player_airborne;
-	}
-} else {
-	if (obj_game.alarm[1] != -1) {
-		sprite_index = spr_player_run;
+//animations
+if (busy == false) {
+	if (caninput) {
+		sprite_index = spr_player_idle;
+		image_speed = 1;
+		if (_left) || (_right) {
+			sprite_index = spr_player_run;
+		}
+		if (!place_meeting(x,y+sign(grv),obj_collision)) && (!place_meeting(x,y+sign(grv),obj_halfcollision)) {
+			sprite_index = spr_player_airborne;
+		}
 	} else {
 		if (image_index >= image_number - 1) {
 			image_speed = 0;
@@ -81,6 +80,9 @@ if (_attack) && (canattack) {
 			
 			//push player
 			bonushsp += (2*dir);
+			
+			busy = true;
+			alarm[4] = (0.10 * game_get_speed(gamespeed_fps));
 			break;
 		case 2:
 			audio_play_sound(sfx_combo,0,0);
@@ -113,6 +115,9 @@ if (_attack) && (canattack) {
 				combopart = 0;
 				alarm[2] = -1;
 			}
+			
+			busy = true;
+			alarm[4] = (0.05 * game_get_speed(gamespeed_fps));
 			break;
 		case 3:
 			if (_up) {
@@ -299,17 +304,12 @@ if (_lootget) {
 	
 	//effect
 	repeat (40) {
-		var _hfx = instance_create_layer(_lootget.x,_lootget.y,"Instances",obj_healtheffect)
-		_hfx.hsp = irandom_range(-3,3)
-		_hfx.vsp = irandom_range(-3,3)
+		var _hfx = instance_create_layer(_lootget.x,_lootget.y,"Instances",obj_healtheffect);
+		_hfx.hsp = irandom_range(-3,3);
+		_hfx.vsp = irandom_range(-3,3);
 	}
 	
-	//add health
-	hp += (2 * healthrestore);
-	if (hp > maxhp) {
-		//addpoints((hp - maxhp) * 5);
-		hp = maxhp;
-	}
+	addhealth(self,2 * healthrestore);
 	
 	instance_destroy(_lootget);
 }
@@ -351,14 +351,14 @@ if (place_meeting(x,y+vsp,obj_collision)) {
 if (sign(vsp) > 0) && (place_meeting(x,y+vsp,obj_halfcollision)) {
 	while (!place_meeting(x,y+sign(vsp),obj_halfcollision)) /*idk i found a crash*/ && (sign(vsp) != 0) {
 		y = y + sign(vsp);
-		//v causes crashes, also only occurs sometimes. :(
+		//v causes crashes, also only occurs sometimes. and occurs other times multiple times :(
 		if (global.playerdowngrades[2] >= 2) && ((_left) || (_right)) {
 			audio_play_sound(sfx_hurt,0,0);
 			sprite_index = spr_player_faceplant;
 			caninput = false;
 			alarm[0] = (0.35 * game_get_speed(gamespeed_fps));
 		}
-		//^ causes crashes, also only occurs sometimes. :(
+		//^ causes crashes, also only occurs sometimes. and occurs other times multiple times :(
 	}
 	vsp = 0;
 }

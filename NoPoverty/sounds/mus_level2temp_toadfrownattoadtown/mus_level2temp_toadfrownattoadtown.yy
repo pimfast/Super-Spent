@@ -1,7 +1,7 @@
 {
   "resourceType": "GMSound",
   "resourceVersion": "1.0",
-  "name": "mus_level1temp_toadfrownattoadtown",
+  "name": "mus_level2temp_toadfrownattoadtown",
   "audioGroupId": {
     "name": "ag_mus",
     "path": "audiogroups/ag_mus",
@@ -17,7 +17,7 @@
   },
   "preload": false,
   "sampleRate": 44100,
-  "soundFile": "mus_level1temp_toadfrownattoadtown.mp3",
+  "soundFile": "mus_level2temp_toadfrownattoadtown.mp3",
   "type": 1,
   "volume": 1.0,
 }

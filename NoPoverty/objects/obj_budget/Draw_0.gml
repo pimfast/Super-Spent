@@ -38,6 +38,10 @@ for (var i = 0; i < _logarraylength; i++) {
 	} else {
 		if ((global.debufflog[i] == global.downgradesFood[global.playerdowngrades[0]]) && food == true) || ((global.debufflog[i] == global.downgradesWater[global.playerdowngrades[1]]) && water == true) || ((global.debufflog[i] == global.downgradesShelter[global.playerdowngrades[2]]) && shelter == true) || ((global.debufflog[i] == global.downgradesWash[global.playerdowngrades[3]]) && wash == true) {
 			draw_set_color(_canceldebuffcolor);
+			//for (var i = 0; i < (string_height_ext(global.debufflog[i],-1,100) / 1); i++) {
+			//	//draw lines over (technically behind) the text
+			//	draw_line(_debufflogx,(logstarty + _debufflogy) + (i * string_height(global.debufflog[i])),_debufflogx+100,(logstarty + _debufflogy) + (i * string_height(global.debufflog[i])))
+			//}
 		} else {
 			draw_set_color(_newdebuffcolor);
 		}

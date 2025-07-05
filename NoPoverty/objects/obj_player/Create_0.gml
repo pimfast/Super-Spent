@@ -44,3 +44,4 @@ invincible = false;
 caninput = false;
 combopart = 0;
 myhitbox = noone;
+busy = false;

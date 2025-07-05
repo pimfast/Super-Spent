@@ -11,3 +11,15 @@ function addpoints(points) {
 //		object.image_index = 0;
 //	}
 //}
+
+function addhealth(target,amount) {
+	target.hp += (amount);
+	if (target.hp > target.maxhp) {
+		//addpoints((hp - maxhp) * 5);
+		target.hp = maxhp;
+	}
+	
+	if (target == obj_player) {
+		//healthbar effect here
+	}
+}

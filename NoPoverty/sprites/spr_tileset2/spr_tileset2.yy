@@ -2,7 +2,7 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "spr_tileset2",
-  "bbox_bottom": 95,
+  "bbox_bottom": 63,
   "bbox_left": 0,
   "bbox_right": 127,
   "bbox_top": 0,
