@@ -21,12 +21,12 @@ if (fallingplatform == true) {
 	myhitbox.attackheight = _attackheight;
 	myhitbox.damagesPlayer = true;
 	myhitbox.owner = self;
-
-	myhitbox.dmg = 10;
+	
+	myhitbox.dmg = 5;
 	myhitbox.hknockback = 0;
 	myhitbox.vknockback = 3;
 	myhitbox.stundur = 1;
-
+	
 	myhitbox.active = false;
 }
 

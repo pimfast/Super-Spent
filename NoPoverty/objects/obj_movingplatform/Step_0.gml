@@ -15,12 +15,26 @@ if (fall == true) {
 		}
 	}
 } else {
-	if (movetarget != 0) {
-		if (x != movetarget.x) {
-			
+	if (movetarget != noone) {
+		if (x+(sprite_width/2) < movetarget.x) {
+			x++;
 		}
-		if (y != movetarget.y) {
-			
+		if (x+(sprite_width/2) > movetarget.x) {
+			x--;
+		}
+		if (y+8 < movetarget.y) {
+			y++;
+		}
+		if (y+8 > movetarget.y) {
+			y--;
+		}
+		if (x+8 == movetarget.x) && (y+8 == movetarget.y) {
+			movetarget = movetarget.nexttarget;
+		}
+		
+		//someone tell me how to do collisions properly...
+		if (place_meeting(x,y,obj_player)) {
+			obj_player.y = y - 8;
 		}
 	}
 }
