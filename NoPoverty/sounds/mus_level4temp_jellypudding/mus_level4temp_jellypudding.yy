@@ -1,7 +1,6 @@
 {
-  "resourceType": "GMSound",
-  "resourceVersion": "1.0",
-  "name": "mus_level4temp_jellypudding",
+  "$GMSound": "",
+  "%Name": "mus_level4temp_jellypudding",
   "audioGroupId": {
     "name": "ag_mus",
     "path": "audiogroups/ag_mus",
@@ -11,11 +10,14 @@
   "compression": 0,
   "conversionMode": 0,
   "duration": 186.192,
+  "name": "mus_level4temp_jellypudding",
   "parent": {
     "name": "music",
     "path": "folders/Sounds/music.yy",
   },
   "preload": false,
+  "resourceType": "GMSound",
+  "resourceVersion": "2.0",
   "sampleRate": 44100,
   "soundFile": "mus_level4temp_jellypudding.mp3",
   "type": 1,

@@ -1,9 +1,9 @@
 {
-  "resourceType": "GMObject",
-  "resourceVersion": "1.0",
-  "name": "obj_transition",
+  "$GMObject": "",
+  "%Name": "obj_transition",
   "eventList": [],
   "managed": true,
+  "name": "obj_transition",
   "overriddenProperties": [],
   "parent": {
     "name": "misc",
@@ -24,6 +24,8 @@
   "physicsShapePoints": [],
   "physicsStartAwake": true,
   "properties": [],
+  "resourceType": "GMObject",
+  "resourceVersion": "2.0",
   "solid": false,
   "spriteId": {
     "name": "spr_transition_horizontal",

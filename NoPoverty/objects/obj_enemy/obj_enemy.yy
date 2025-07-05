@@ -1,9 +1,9 @@
 {
-  "resourceType": "GMObject",
-  "resourceVersion": "1.0",
-  "name": "obj_enemy",
+  "$GMObject": "",
+  "%Name": "obj_enemy",
   "eventList": [],
   "managed": true,
+  "name": "obj_enemy",
   "overriddenProperties": [],
   "parent": {
     "name": "parents",
@@ -27,6 +27,8 @@
   "physicsShapePoints": [],
   "physicsStartAwake": true,
   "properties": [],
+  "resourceType": "GMObject",
+  "resourceVersion": "2.0",
   "solid": false,
   "spriteId": null,
   "spriteMaskId": null,

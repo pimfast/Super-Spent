@@ -1,4 +1,5 @@
 {
+  "$GMSwitchOptions": "",
   "%Name": "Switch",
   "name": "Switch",
   "option_switch_allow_debug_output": false,
@@ -14,5 +15,5 @@
   "option_switch_texture_page": "2048x2048",
   "option_switch_use_splash": false,
   "resourceType": "GMSwitchOptions",
-  "resourceVersion": "1.0",
+  "resourceVersion": "2.0",
 }

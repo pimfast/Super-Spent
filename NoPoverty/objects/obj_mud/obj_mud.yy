@@ -1,9 +1,9 @@
 {
-  "resourceType": "GMObject",
-  "resourceVersion": "1.0",
-  "name": "obj_mud",
+  "$GMObject": "",
+  "%Name": "obj_mud",
   "eventList": [],
   "managed": true,
+  "name": "obj_mud",
   "overriddenProperties": [],
   "parent": {
     "name": "level geometry",
@@ -24,6 +24,8 @@
   "physicsShapePoints": [],
   "physicsStartAwake": true,
   "properties": [],
+  "resourceType": "GMObject",
+  "resourceVersion": "2.0",
   "solid": false,
   "spriteId": {
     "name": "spr_mud",

@@ -1,7 +1,6 @@
 {
-  "resourceType": "GMSound",
-  "resourceVersion": "1.0",
-  "name": "mus_menutemp_youcanletitslipsip",
+  "$GMSound": "",
+  "%Name": "mus_menutemp_youcanletitslipsip",
   "audioGroupId": {
     "name": "ag_mus",
     "path": "audiogroups/ag_mus",
@@ -11,11 +10,14 @@
   "compression": 0,
   "conversionMode": 0,
   "duration": 104.28,
+  "name": "mus_menutemp_youcanletitslipsip",
   "parent": {
     "name": "music",
     "path": "folders/Sounds/music.yy",
   },
   "preload": false,
+  "resourceType": "GMSound",
+  "resourceVersion": "2.0",
   "sampleRate": 44100,
   "soundFile": "mus_menutemp_youcanletitslipsip.mp3",
   "type": 1,

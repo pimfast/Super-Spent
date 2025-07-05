@@ -1,9 +1,9 @@
 {
-  "resourceType": "GMObject",
-  "resourceVersion": "1.0",
-  "name": "obj_hurtable",
+  "$GMObject": "",
+  "%Name": "obj_hurtable",
   "eventList": [],
   "managed": true,
+  "name": "obj_hurtable",
   "overriddenProperties": [],
   "parent": {
     "name": "parents",
@@ -24,6 +24,8 @@
   "physicsShapePoints": [],
   "physicsStartAwake": true,
   "properties": [],
+  "resourceType": "GMObject",
+  "resourceVersion": "2.0",
   "solid": false,
   "spriteId": null,
   "spriteMaskId": null,

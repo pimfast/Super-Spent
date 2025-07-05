@@ -1,4 +1,5 @@
 {
+  "$GMPS4Options": "",
   "%Name": "PlayStation 4",
   "name": "PlayStation 4",
   "option_ps4_display_cursor": false,
@@ -32,5 +33,5 @@
   "option_ps4_trophyedit": "",
   "option_ps4_trophy_screen": "${base_options_dir}/ps4/sce_sys/pic0.png",
   "resourceType": "GMPS4Options",
-  "resourceVersion": "1.0",
+  "resourceVersion": "2.0",
 }
