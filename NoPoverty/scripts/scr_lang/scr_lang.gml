@@ -38,7 +38,7 @@ english = [
 "Attack 3 times quickly for a powerful blow!",
 "Hold UP while performing a 3-hit-combo to uppercut and escape!",
 //end
-"You win!\n\nPress ESC to return to menu.", //32
+"You win! Press ESC to return to menu.", //32
 "All coins too wow you're so handsome and/or beautiful.",
 "No coins too wow I wanna kiss you."
 ];

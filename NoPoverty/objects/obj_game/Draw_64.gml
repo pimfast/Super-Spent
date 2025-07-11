@@ -30,14 +30,15 @@ if (transitionchange == true) {
 			if (global.coinnum <= 0) && (global.playerdowngrades[0] >= 3) && (global.playerdowngrades[1] >= 3) && (global.playerdowngrades[2] >= 3) && (global.playerdowngrades[3] >= 3) {
 				draw_text_color(obj_camera.camerawidth/2,obj_camera.cameraheight*0.8,global.lang[34],_wincolor,_wincolor,_wincolor,_wincolor,1);
 			}
+			audio_stop_sound(mus_level4temp_afterboattankapparitions);
 		}
 	}
 	if (transitionx - _transitionspeed <= 0) {
 		transitionx = 0;
 	} else {
 		transitionx -= _transitionspeed;
-		obj_transition.x = (obj_camera.camerax + transitionx);
 	}
+	obj_transition.x = (obj_camera.camerax + transitionx);
 }
 
 if (instance_exists(obj_player)) {

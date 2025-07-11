@@ -21,7 +21,7 @@ if (_confirm) {
 }
 
 if (instance_exists(obj_transition)) {
-	obj_transition.image_alpha += 0.05
+	obj_transition.image_alpha += 0.05;
 }
 
 draw_set_font(fnt_01);
@@ -54,7 +54,7 @@ switch (selectedoption) {
 			audio_play_sound(sfx_confirm,0,0);
 			audio_group_set_gain(ag_mus,0,500);
 			alarm[0] = (0.5 * game_get_speed(gamespeed_fps));
-			var _transition = instance_create_depth(0,0,-100,obj_transition)
+			var _transition = instance_create_depth(0,0,-100,obj_transition);
 			_transition.image_alpha = 0;
 		}
 		break;
