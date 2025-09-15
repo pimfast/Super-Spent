@@ -13,7 +13,7 @@ english = [
 "Exhausted: -30% move speed" /*while i do wanna do something with strafing, i think lower acceleration is way more interesting*/,
 "Smelly: -40% max health",
 "Gross: Half health received from pickups", //definitely less bad in comparison to the other 2nd downgrades sad face
-"Sick (in a bad way): -10% max health, jump height, and move speed",
+"Sick (in a bad way): Max health lowered to 1",
 //menu
 "Start Game", //13
 "Settings",
@@ -39,7 +39,7 @@ english = [
 "Hold UP while performing a 3-hit-combo to uppercut and escape!",
 //end
 "You win! Press ESC to return to menu.", //32
-"All coins too wow you're so handsome and/or beautiful.",
+"Got all coins too wow you're so handsome and/or beautiful.",
 "No coins too wow I wanna kiss you."
 ];
 dutch = [
@@ -56,7 +56,7 @@ dutch = [
 "Uitgeput: -30% bewegingssnelheid",
 "Stinkend: -40% max HP",
 "Vies: Gehalveerd HP ontvangen van pickups",
-"Ziek: -10% max HP, spronghoogte, en bewegingssnelheid",
+"Ziek: Max HP verlaagd naar 1",
 //menu
 "Spel Opstarten", //13
 "Instellingen",
@@ -82,7 +82,7 @@ dutch = [
 "Houd de omhoogknop ingedrukt terwijl je een 3-hit-combo doet om een uppercut en ontsnappen te gaan doen!",
 //end
 "Je hebt gewonnen! Druk op Esc om naar het menu te gaan.", //32
-"Alle muntjes ook goh je bent zo echt mooi.",
+"Alle muntjes gekregen ook goh je bent zo echt mooi.",
 "Geen muntjes ook goh ik wil je kussen."
 ];
 

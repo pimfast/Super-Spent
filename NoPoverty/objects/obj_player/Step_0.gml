@@ -278,9 +278,13 @@ if (skidh < 0) {skidh = 0;} //set the minimum back to 0
 
 //falling platform
 var _fallplat = instance_place(x,y+vsp,obj_movingplatform);
-if (_fallplat) && (_fallplat.fallingplatform) && (_fallplat.alarm[0] == -1) && (sign(vsp) >= 0) {
-	_fallplat.alarm[0] = (0.75 * game_get_speed(gamespeed_fps));
-	_fallplat.y += 1;
+if (_fallplat) {
+	if (_fallplat.fallingplatform) && (_fallplat.alarm[0] == -1) && (sign(vsp) >= 0) {
+		_fallplat.alarm[0] = (0.75 * game_get_speed(gamespeed_fps));
+		_fallplat.y += 1;
+	}
+	hsp += _fallplat.hsp;
+	vsp += _fallplat.vsp;
 }
 
 //coin

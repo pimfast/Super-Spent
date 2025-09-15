@@ -5,6 +5,7 @@ audio_group_load(ag_sfx);
 
 window_set_cursor(cr_none);
 
+global.debug = false;
 global.enablesound = true;
 global.lang = [];
 

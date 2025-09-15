@@ -4,6 +4,7 @@ draw_set_font(fnt_01);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
+//level transitions
 var _transitionspeed = 20; //10
 if (transitionchange == false) {
 	if (obj_transition.x > (obj_camera.camerax - obj_transition.sprite_width)) {
@@ -23,7 +24,10 @@ if (transitionchange == true) {
 		} else {
 			//idk you win
 			var _wincolor = make_color_rgb(247,142,214);
+			draw_sprite_stretched(spr_player_victory,0,obj_camera.camerawidth/2-15,32,30,30);
+			draw_line(obj_camera.camerawidth/2,0,obj_camera.camerawidth/2,obj_camera.cameraheight)
 			draw_text_color(obj_camera.camerawidth/2,obj_camera.cameraheight/2,global.lang[32],_wincolor,_wincolor,_wincolor,_wincolor,1);
+			
 			if (global.coinnum >= 4) && (global.playerdowngrades[0] <= 0) && (global.playerdowngrades[1] <= 0) && (global.playerdowngrades[2] <= 0) && (global.playerdowngrades[3] <= 0) {
 				draw_text_color(obj_camera.camerawidth/2,obj_camera.cameraheight*0.8,global.lang[33],_wincolor,_wincolor,_wincolor,_wincolor,1);
 			}
@@ -41,6 +45,7 @@ if (transitionchange == true) {
 	obj_transition.x = (obj_camera.camerax + transitionx);
 }
 
+//draw hud
 if (instance_exists(obj_player)) {
 	var _hudsprite;
 	var _startdistance;
@@ -119,5 +124,31 @@ if (instance_exists(obj_player)) {
 			alarm[2] = (2 * game_get_speed(gamespeed_fps));
 		}
 		draw_text_transformed_color(obj_camera.camerawidth/2,obj_camera.cameraheight*0.90,_tuttext,1,1,0,_tutcolor,_tutcolor,_tutcolor,_tutcolor,1);
+	}
+}
+
+if (global.debug == true) {
+	var _cw = obj_camera.camerawidth;
+	var _ch = obj_camera.cameraheight;
+	draw_set_halign(fa_right);
+	draw_set_color(c_yellow);
+	draw_text(_cw-8,_ch/3,"left alt\nnext level");
+	draw_text(_cw-8,_ch/3+_ch/3,"right alt\ngain coin");
+	if (keyboard_check_pressed(vk_lalt)) {
+		if (room != rm_level4) {
+			global.level++;
+			room_goto(rm_budget);
+		} else {
+			if (instance_exists(obj_player)) {
+				obj_player.x = 3135;
+				obj_player.y = 123;
+			}
+		}
+	}
+	if (keyboard_check_pressed(vk_ralt)) {
+		if (global.coinnum < 4) {
+			audio_play_sound(sfx_combo,0,0);
+			global.coinnum++;
+		}
 	}
 }

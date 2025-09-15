@@ -9,8 +9,8 @@
   "name":"obj_healtheffect",
   "overriddenProperties":[],
   "parent":{
-    "name":"misc",
-    "path":"folders/Objects/misc.yy",
+    "name":"pickups",
+    "path":"folders/Objects/pickups.yy",
   },
   "parentObjectId":null,
   "persistent":false,

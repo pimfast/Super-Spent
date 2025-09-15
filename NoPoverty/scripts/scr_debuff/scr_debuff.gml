@@ -19,7 +19,7 @@ function debuffneccessities(food,water,shelter,wash){
 				global.jumpsp *= 0.85;
 				break;
 			case 1:
-				// no code needed :)
+				// faceplant, no code needed here
 				break;
 			case 2:
 				//global.grv *= 1.2;
@@ -33,7 +33,7 @@ function debuffneccessities(food,water,shelter,wash){
 				global.defwalksp *= 0.75;
 				break;
 			case 1:
-				// no code needed :)
+				// jumping requires charge, no code here Moving while landing often makes you fall over
 				break;
 			case 2:
 				global.defwalksp *= 0.70;
@@ -50,9 +50,7 @@ function debuffneccessities(food,water,shelter,wash){
 				global.healthrestore *= 0.5;
 				break;
 			case 2:
-				global.maxhp -= 1; //*0.9 = 5.4 L
-				global.jumpsp *= 0.9;
-				global.defwalksp *= 0.9;
+				global.maxhp = 1; //*0.9 = 5.4 L
 				break;
 		}
 		global.playerdowngrades[3] += 1;
