@@ -7,13 +7,13 @@ english = [
 "Starving: Attacks won't stun enemies",
 "Thirsty: -15% jump height",
 "Dehydrated: Jumping requires charge",
-"Husk: Jumping costs health"/*"Husk: 20% increased gravity"*/,
+"Husk: Jumping takes health"/*"Husk: 20% increased gravity"*/,
 "Tired: -25% move speed",
 "Drained: Moving while landing often makes you fall over",
 "Exhausted: -30% move speed" /*while i do wanna do something with strafing, i think lower acceleration is way more interesting*/,
 "Smelly: -40% max health",
 "Gross: Half health received from pickups", //definitely less bad in comparison to the other 2nd downgrades sad face
-"Sick (in a bad way): Max health lowered to 1",
+"Sick (in a bad way): Max health lowered to 2",
 //menu
 "Start Game", //13
 "Settings",
@@ -50,13 +50,13 @@ dutch = [
 "Skelet: Aanvallen zou vijanden niet verbijsteren",
 "Dorstig: -15% spronghoogte",
 "Uitgedroogd: Springen is langzaam",
-"Lijk: Springen kost HP"/*"Lijk: 20% meer zwaartekracht"*/,
+"Lijk: Springen neemt HP"/*"Lijk: 20% meer zwaartekracht"*/,
 "Moe: -25% bewegingssnelheid",
-"Vermoeid: Bewegen tijdens het landen zorgt vaak ervoor dat je omvalt",
+"Vermoeid: Bewegen tijdens het landen zorgt er vaak voor dat je omvalt",
 "Uitgeput: -30% bewegingssnelheid",
 "Stinkend: -40% max HP",
 "Vies: Gehalveerd HP ontvangen van pickups",
-"Ziek: Max HP verlaagd naar 1",
+"Ziek: Max HP verlaagd naar 2",
 //menu
 "Spel Opstarten", //13
 "Instellingen",
@@ -79,7 +79,7 @@ dutch = [
 "Houd S ingedrukt om te straffen\nDit maakt je richting vastgelegd, waardoor aanvallen makkelijker wordt",
 "Houd S ingedrukt om te straffen\nDit stijgt ook lucht snelheid",
 "Aanval snel 3 keer voor een krachtige klap!",
-"Houd de omhoogknop ingedrukt terwijl je een 3-hit-combo doet om een uppercut en ontsnappen te gaan doen!",
+"Houd de omhoogknop ingedrukt terwijl je een 3-hit-combo doet \nom te uppercut en ontsnap!",
 //end
 "Je hebt gewonnen! Druk op Esc om naar het menu te gaan.", //32
 "Alle muntjes gekregen ook goh je bent zo echt mooi.",

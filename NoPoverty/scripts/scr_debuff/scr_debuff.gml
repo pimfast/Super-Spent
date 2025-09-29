@@ -22,6 +22,7 @@ function debuffneccessities(food,water,shelter,wash){
 				// faceplant, no code needed here
 				break;
 			case 2:
+				// jumping costs health
 				//global.grv *= 1.2;
 				break;
 		}
@@ -50,7 +51,7 @@ function debuffneccessities(food,water,shelter,wash){
 				global.healthrestore *= 0.5;
 				break;
 			case 2:
-				global.maxhp = 1; //*0.9 = 5.4 L
+				global.maxhp = 2; //*0.9 = 5.4 L
 				break;
 		}
 		global.playerdowngrades[3] += 1;

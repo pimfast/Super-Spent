@@ -24,8 +24,8 @@ if (transitionchange == true) {
 		} else {
 			//idk you win
 			var _wincolor = make_color_rgb(247,142,214);
-			draw_sprite_stretched(spr_player_victory,0,obj_camera.camerawidth/2-15,32,30,30);
-			draw_line(obj_camera.camerawidth/2,0,obj_camera.camerawidth/2,obj_camera.cameraheight)
+			draw_sprite_stretched(spr_player_victory,0,obj_camera.camerawidth/2-14,32,30,30);
+			//draw_line(obj_camera.camerawidth/2,0,obj_camera.camerawidth/2,obj_camera.cameraheight)
 			draw_text_color(obj_camera.camerawidth/2,obj_camera.cameraheight/2,global.lang[32],_wincolor,_wincolor,_wincolor,_wincolor,1);
 			
 			if (global.coinnum >= 4) && (global.playerdowngrades[0] <= 0) && (global.playerdowngrades[1] <= 0) && (global.playerdowngrades[2] <= 0) && (global.playerdowngrades[3] <= 0) {
@@ -57,6 +57,10 @@ if (instance_exists(obj_player)) {
 	_betweendistance = 2.5;
 	for(var i = obj_player.hp; i > 0; i--) {
 		draw_sprite_stretched(_hudsprite,0,10,_startdistance,sprite_get_width(_hudsprite),sprite_get_height(_hudsprite));
+		_startdistance += (sprite_get_height(_hudsprite) + _betweendistance); 
+	}
+	for(var i = (obj_player.maxhp - obj_player.hp); i > 0; i--) {
+		draw_sprite_stretched(_hudsprite,2,10,_startdistance,sprite_get_width(_hudsprite),sprite_get_height(_hudsprite));
 		_startdistance += (sprite_get_height(_hudsprite) + _betweendistance); 
 	}
 	

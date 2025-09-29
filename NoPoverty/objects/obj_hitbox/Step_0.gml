@@ -31,6 +31,12 @@ if (_num > 0) {
 				if (_victim.hp <= 0) {
 					//kill
 					obj_game.alarm[0] = (1 * game_get_speed(gamespeed_fps));
+					//_victim.hp = 0;
+					//_victim.caninput = false;
+					audio_stop_sound(mus_level1temp_plusdotdotplus);
+					audio_stop_sound(mus_level2temp_toadfrownattoadtown);
+					audio_stop_sound(mus_level3temp_thethethechilloutbro);
+					audio_stop_sound(mus_level4temp_afterboattankapparitions);
 					instance_destroy(_victim);
 				} else {
 					//enable i frames
